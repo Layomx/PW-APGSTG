@@ -24,18 +24,28 @@ Partial Class Login
     Private Sub InitializeComponent()
         Me.Register = New System.Windows.Forms.GroupBox()
         Me.GBEstudiante = New System.Windows.Forms.GroupBox()
-        Me.BtnCreateAcc = New System.Windows.Forms.Button()
-        Me.TextBox6 = New System.Windows.Forms.TextBox()
+        Me.BtnCreateAccStudent = New System.Windows.Forms.Button()
+        Me.StudentAddress = New System.Windows.Forms.TextBox()
         Me.Label9 = New System.Windows.Forms.Label()
-        Me.TextBox5 = New System.Windows.Forms.TextBox()
+        Me.StudentEmail = New System.Windows.Forms.TextBox()
         Me.Label8 = New System.Windows.Forms.Label()
-        Me.TextBox4 = New System.Windows.Forms.TextBox()
+        Me.StudentLastName = New System.Windows.Forms.TextBox()
         Me.Label7 = New System.Windows.Forms.Label()
-        Me.TextBox3 = New System.Windows.Forms.TextBox()
+        Me.StudentName = New System.Windows.Forms.TextBox()
         Me.Label6 = New System.Windows.Forms.Label()
         Me.AccountType = New System.Windows.Forms.ComboBox()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
+        Me.GPCoordinador = New System.Windows.Forms.GroupBox()
+        Me.BtnCreateAccCoordinator = New System.Windows.Forms.Button()
+        Me.CoordinatorTelephoneNumber = New System.Windows.Forms.TextBox()
+        Me.Label10 = New System.Windows.Forms.Label()
+        Me.CoordinatorEmail = New System.Windows.Forms.TextBox()
+        Me.Label11 = New System.Windows.Forms.Label()
+        Me.CoordinatorLastName = New System.Windows.Forms.TextBox()
+        Me.Label12 = New System.Windows.Forms.Label()
+        Me.CoordinatorName = New System.Windows.Forms.TextBox()
+        Me.Label13 = New System.Windows.Forms.Label()
         Me.SignIn = New System.Windows.Forms.GroupBox()
         Me.BtnSignIn = New System.Windows.Forms.Button()
         Me.PasswordSign = New System.Windows.Forms.TextBox()
@@ -48,6 +58,7 @@ Partial Class Login
         Me.Register.SuspendLayout()
         Me.GBEstudiante.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.GPCoordinador.SuspendLayout()
         Me.SignIn.SuspendLayout()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -55,6 +66,7 @@ Partial Class Login
         'Register
         '
         Me.Register.BackColor = System.Drawing.Color.White
+        Me.Register.Controls.Add(Me.GPCoordinador)
         Me.Register.Controls.Add(Me.GBEstudiante)
         Me.Register.Controls.Add(Me.AccountType)
         Me.Register.Controls.Add(Me.Label1)
@@ -67,14 +79,14 @@ Partial Class Login
         '
         'GBEstudiante
         '
-        Me.GBEstudiante.Controls.Add(Me.BtnCreateAcc)
-        Me.GBEstudiante.Controls.Add(Me.TextBox6)
+        Me.GBEstudiante.Controls.Add(Me.BtnCreateAccStudent)
+        Me.GBEstudiante.Controls.Add(Me.StudentAddress)
         Me.GBEstudiante.Controls.Add(Me.Label9)
-        Me.GBEstudiante.Controls.Add(Me.TextBox5)
+        Me.GBEstudiante.Controls.Add(Me.StudentEmail)
         Me.GBEstudiante.Controls.Add(Me.Label8)
-        Me.GBEstudiante.Controls.Add(Me.TextBox4)
+        Me.GBEstudiante.Controls.Add(Me.StudentLastName)
         Me.GBEstudiante.Controls.Add(Me.Label7)
-        Me.GBEstudiante.Controls.Add(Me.TextBox3)
+        Me.GBEstudiante.Controls.Add(Me.StudentName)
         Me.GBEstudiante.Controls.Add(Me.Label6)
         Me.GBEstudiante.Location = New System.Drawing.Point(28, 135)
         Me.GBEstudiante.Name = "GBEstudiante"
@@ -83,22 +95,22 @@ Partial Class Login
         Me.GBEstudiante.TabStop = False
         Me.GBEstudiante.Text = "Estudiante"
         '
-        'BtnCreateAcc
+        'BtnCreateAccStudent
         '
-        Me.BtnCreateAcc.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom), System.Windows.Forms.AnchorStyles)
-        Me.BtnCreateAcc.Location = New System.Drawing.Point(138, 280)
-        Me.BtnCreateAcc.Name = "BtnCreateAcc"
-        Me.BtnCreateAcc.Size = New System.Drawing.Size(111, 23)
-        Me.BtnCreateAcc.TabIndex = 8
-        Me.BtnCreateAcc.Text = "Crear cuenta"
-        Me.BtnCreateAcc.UseVisualStyleBackColor = True
+        Me.BtnCreateAccStudent.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom), System.Windows.Forms.AnchorStyles)
+        Me.BtnCreateAccStudent.Location = New System.Drawing.Point(138, 280)
+        Me.BtnCreateAccStudent.Name = "BtnCreateAccStudent"
+        Me.BtnCreateAccStudent.Size = New System.Drawing.Size(111, 23)
+        Me.BtnCreateAccStudent.TabIndex = 8
+        Me.BtnCreateAccStudent.Text = "Crear cuenta"
+        Me.BtnCreateAccStudent.UseVisualStyleBackColor = True
         '
-        'TextBox6
+        'StudentAddress
         '
-        Me.TextBox6.Location = New System.Drawing.Point(20, 242)
-        Me.TextBox6.Name = "TextBox6"
-        Me.TextBox6.Size = New System.Drawing.Size(337, 22)
-        Me.TextBox6.TabIndex = 12
+        Me.StudentAddress.Location = New System.Drawing.Point(20, 242)
+        Me.StudentAddress.Name = "StudentAddress"
+        Me.StudentAddress.Size = New System.Drawing.Size(337, 22)
+        Me.StudentAddress.TabIndex = 12
         '
         'Label9
         '
@@ -111,12 +123,12 @@ Partial Class Login
         Me.Label9.TabIndex = 11
         Me.Label9.Text = "Direccion"
         '
-        'TextBox5
+        'StudentEmail
         '
-        Me.TextBox5.Location = New System.Drawing.Point(20, 178)
-        Me.TextBox5.Name = "TextBox5"
-        Me.TextBox5.Size = New System.Drawing.Size(337, 22)
-        Me.TextBox5.TabIndex = 9
+        Me.StudentEmail.Location = New System.Drawing.Point(20, 178)
+        Me.StudentEmail.Name = "StudentEmail"
+        Me.StudentEmail.Size = New System.Drawing.Size(337, 22)
+        Me.StudentEmail.TabIndex = 9
         '
         'Label8
         '
@@ -129,12 +141,12 @@ Partial Class Login
         Me.Label8.TabIndex = 8
         Me.Label8.Text = "Correo"
         '
-        'TextBox4
+        'StudentLastName
         '
-        Me.TextBox4.Location = New System.Drawing.Point(20, 117)
-        Me.TextBox4.Name = "TextBox4"
-        Me.TextBox4.Size = New System.Drawing.Size(337, 22)
-        Me.TextBox4.TabIndex = 10
+        Me.StudentLastName.Location = New System.Drawing.Point(20, 117)
+        Me.StudentLastName.Name = "StudentLastName"
+        Me.StudentLastName.Size = New System.Drawing.Size(337, 22)
+        Me.StudentLastName.TabIndex = 10
         '
         'Label7
         '
@@ -147,12 +159,12 @@ Partial Class Login
         Me.Label7.TabIndex = 9
         Me.Label7.Text = "Apellido"
         '
-        'TextBox3
+        'StudentName
         '
-        Me.TextBox3.Location = New System.Drawing.Point(20, 57)
-        Me.TextBox3.Name = "TextBox3"
-        Me.TextBox3.Size = New System.Drawing.Size(337, 22)
-        Me.TextBox3.TabIndex = 8
+        Me.StudentName.Location = New System.Drawing.Point(20, 57)
+        Me.StudentName.Name = "StudentName"
+        Me.StudentName.Size = New System.Drawing.Size(337, 22)
+        Me.StudentName.TabIndex = 8
         '
         'Label6
         '
@@ -196,6 +208,106 @@ Partial Class Login
         Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.PictureBox1.TabIndex = 0
         Me.PictureBox1.TabStop = False
+        '
+        'GPCoordinador
+        '
+        Me.GPCoordinador.Controls.Add(Me.BtnCreateAccCoordinator)
+        Me.GPCoordinador.Controls.Add(Me.CoordinatorTelephoneNumber)
+        Me.GPCoordinador.Controls.Add(Me.Label10)
+        Me.GPCoordinador.Controls.Add(Me.CoordinatorEmail)
+        Me.GPCoordinador.Controls.Add(Me.Label11)
+        Me.GPCoordinador.Controls.Add(Me.CoordinatorLastName)
+        Me.GPCoordinador.Controls.Add(Me.Label12)
+        Me.GPCoordinador.Controls.Add(Me.CoordinatorName)
+        Me.GPCoordinador.Controls.Add(Me.Label13)
+        Me.GPCoordinador.Location = New System.Drawing.Point(28, 135)
+        Me.GPCoordinador.Name = "GPCoordinador"
+        Me.GPCoordinador.Size = New System.Drawing.Size(378, 318)
+        Me.GPCoordinador.TabIndex = 13
+        Me.GPCoordinador.TabStop = False
+        Me.GPCoordinador.Text = "Coordinador"
+        '
+        'BtnCreateAccCoordinator
+        '
+        Me.BtnCreateAccCoordinator.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom), System.Windows.Forms.AnchorStyles)
+        Me.BtnCreateAccCoordinator.Location = New System.Drawing.Point(138, 280)
+        Me.BtnCreateAccCoordinator.Name = "BtnCreateAccCoordinator"
+        Me.BtnCreateAccCoordinator.Size = New System.Drawing.Size(111, 23)
+        Me.BtnCreateAccCoordinator.TabIndex = 8
+        Me.BtnCreateAccCoordinator.Text = "Crear cuenta"
+        Me.BtnCreateAccCoordinator.UseVisualStyleBackColor = True
+        '
+        'CoordinatorTelephoneNumber
+        '
+        Me.CoordinatorTelephoneNumber.Location = New System.Drawing.Point(20, 242)
+        Me.CoordinatorTelephoneNumber.Name = "CoordinatorTelephoneNumber"
+        Me.CoordinatorTelephoneNumber.Size = New System.Drawing.Size(337, 22)
+        Me.CoordinatorTelephoneNumber.TabIndex = 12
+        '
+        'Label10
+        '
+        Me.Label10.AutoSize = True
+        Me.Label10.Font = New System.Drawing.Font("Arial Rounded MT Bold", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label10.ForeColor = System.Drawing.SystemColors.ControlDarkDark
+        Me.Label10.Location = New System.Drawing.Point(17, 224)
+        Me.Label10.Name = "Label10"
+        Me.Label10.Size = New System.Drawing.Size(63, 15)
+        Me.Label10.TabIndex = 11
+        Me.Label10.Text = "Telefono"
+        '
+        'CoordinatorEmail
+        '
+        Me.CoordinatorEmail.Location = New System.Drawing.Point(20, 178)
+        Me.CoordinatorEmail.Name = "CoordinatorEmail"
+        Me.CoordinatorEmail.Size = New System.Drawing.Size(337, 22)
+        Me.CoordinatorEmail.TabIndex = 9
+        '
+        'Label11
+        '
+        Me.Label11.AutoSize = True
+        Me.Label11.Font = New System.Drawing.Font("Arial Rounded MT Bold", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label11.ForeColor = System.Drawing.SystemColors.ControlDarkDark
+        Me.Label11.Location = New System.Drawing.Point(17, 160)
+        Me.Label11.Name = "Label11"
+        Me.Label11.Size = New System.Drawing.Size(53, 15)
+        Me.Label11.TabIndex = 8
+        Me.Label11.Text = "Correo"
+        '
+        'CoordinatorLastName
+        '
+        Me.CoordinatorLastName.Location = New System.Drawing.Point(20, 117)
+        Me.CoordinatorLastName.Name = "CoordinatorLastName"
+        Me.CoordinatorLastName.Size = New System.Drawing.Size(337, 22)
+        Me.CoordinatorLastName.TabIndex = 10
+        '
+        'Label12
+        '
+        Me.Label12.AutoSize = True
+        Me.Label12.Font = New System.Drawing.Font("Arial Rounded MT Bold", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label12.ForeColor = System.Drawing.SystemColors.ControlDarkDark
+        Me.Label12.Location = New System.Drawing.Point(17, 99)
+        Me.Label12.Name = "Label12"
+        Me.Label12.Size = New System.Drawing.Size(60, 15)
+        Me.Label12.TabIndex = 9
+        Me.Label12.Text = "Apellido"
+        '
+        'CoordinatorName
+        '
+        Me.CoordinatorName.Location = New System.Drawing.Point(20, 57)
+        Me.CoordinatorName.Name = "CoordinatorName"
+        Me.CoordinatorName.Size = New System.Drawing.Size(337, 22)
+        Me.CoordinatorName.TabIndex = 8
+        '
+        'Label13
+        '
+        Me.Label13.AutoSize = True
+        Me.Label13.Font = New System.Drawing.Font("Arial Rounded MT Bold", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label13.ForeColor = System.Drawing.SystemColors.ControlDarkDark
+        Me.Label13.Location = New System.Drawing.Point(17, 39)
+        Me.Label13.Name = "Label13"
+        Me.Label13.Size = New System.Drawing.Size(59, 15)
+        Me.Label13.TabIndex = 8
+        Me.Label13.Text = "Nombre"
         '
         'SignIn
         '
@@ -309,6 +421,8 @@ Partial Class Login
         Me.GBEstudiante.ResumeLayout(False)
         Me.GBEstudiante.PerformLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.GPCoordinador.ResumeLayout(False)
+        Me.GPCoordinador.PerformLayout()
         Me.SignIn.ResumeLayout(False)
         Me.SignIn.PerformLayout()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).EndInit()
@@ -330,13 +444,23 @@ Partial Class Login
     Friend WithEvents BtnSignIn As Button
     Friend WithEvents AccountType As ComboBox
     Friend WithEvents GBEstudiante As GroupBox
-    Friend WithEvents BtnCreateAcc As Button
-    Friend WithEvents TextBox6 As TextBox
+    Friend WithEvents BtnCreateAccStudent As Button
+    Friend WithEvents StudentAddress As TextBox
     Friend WithEvents Label9 As Label
-    Friend WithEvents TextBox5 As TextBox
+    Friend WithEvents StudentEmail As TextBox
     Friend WithEvents Label8 As Label
-    Friend WithEvents TextBox4 As TextBox
+    Friend WithEvents StudentLastName As TextBox
     Friend WithEvents Label7 As Label
-    Friend WithEvents TextBox3 As TextBox
+    Friend WithEvents StudentName As TextBox
     Friend WithEvents Label6 As Label
+    Friend WithEvents GPCoordinador As GroupBox
+    Friend WithEvents BtnCreateAccCoordinator As Button
+    Friend WithEvents CoordinatorTelephoneNumber As TextBox
+    Friend WithEvents Label10 As Label
+    Friend WithEvents CoordinatorEmail As TextBox
+    Friend WithEvents Label11 As Label
+    Friend WithEvents CoordinatorLastName As TextBox
+    Friend WithEvents Label12 As Label
+    Friend WithEvents CoordinatorName As TextBox
+    Friend WithEvents Label13 As Label
 End Class
