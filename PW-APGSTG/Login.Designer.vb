@@ -23,6 +23,16 @@ Partial Class Login
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.Register = New System.Windows.Forms.GroupBox()
+        Me.GBCoordinador = New System.Windows.Forms.GroupBox()
+        Me.BtnCreateAccCoordinator = New System.Windows.Forms.Button()
+        Me.CoordinatorTelephoneNumber = New System.Windows.Forms.TextBox()
+        Me.Label10 = New System.Windows.Forms.Label()
+        Me.CoordinatorEmail = New System.Windows.Forms.TextBox()
+        Me.Label11 = New System.Windows.Forms.Label()
+        Me.CoordinatorLastName = New System.Windows.Forms.TextBox()
+        Me.Label12 = New System.Windows.Forms.Label()
+        Me.CoordinatorName = New System.Windows.Forms.TextBox()
+        Me.Label13 = New System.Windows.Forms.Label()
         Me.GBEstudiante = New System.Windows.Forms.GroupBox()
         Me.BtnCreateAccStudent = New System.Windows.Forms.Button()
         Me.StudentAddress = New System.Windows.Forms.TextBox()
@@ -36,16 +46,6 @@ Partial Class Login
         Me.AccountType = New System.Windows.Forms.ComboBox()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
-        Me.GPCoordinador = New System.Windows.Forms.GroupBox()
-        Me.BtnCreateAccCoordinator = New System.Windows.Forms.Button()
-        Me.CoordinatorTelephoneNumber = New System.Windows.Forms.TextBox()
-        Me.Label10 = New System.Windows.Forms.Label()
-        Me.CoordinatorEmail = New System.Windows.Forms.TextBox()
-        Me.Label11 = New System.Windows.Forms.Label()
-        Me.CoordinatorLastName = New System.Windows.Forms.TextBox()
-        Me.Label12 = New System.Windows.Forms.Label()
-        Me.CoordinatorName = New System.Windows.Forms.TextBox()
-        Me.Label13 = New System.Windows.Forms.Label()
         Me.SignIn = New System.Windows.Forms.GroupBox()
         Me.BtnSignIn = New System.Windows.Forms.Button()
         Me.PasswordSign = New System.Windows.Forms.TextBox()
@@ -56,9 +56,9 @@ Partial Class Login
         Me.Label2 = New System.Windows.Forms.Label()
         Me.PictureBox2 = New System.Windows.Forms.PictureBox()
         Me.Register.SuspendLayout()
+        Me.GBCoordinador.SuspendLayout()
         Me.GBEstudiante.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.GPCoordinador.SuspendLayout()
         Me.SignIn.SuspendLayout()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -66,7 +66,7 @@ Partial Class Login
         'Register
         '
         Me.Register.BackColor = System.Drawing.Color.White
-        Me.Register.Controls.Add(Me.GPCoordinador)
+        Me.Register.Controls.Add(Me.GBCoordinador)
         Me.Register.Controls.Add(Me.GBEstudiante)
         Me.Register.Controls.Add(Me.AccountType)
         Me.Register.Controls.Add(Me.Label1)
@@ -76,6 +76,106 @@ Partial Class Login
         Me.Register.Size = New System.Drawing.Size(426, 480)
         Me.Register.TabIndex = 0
         Me.Register.TabStop = False
+        '
+        'GBCoordinador
+        '
+        Me.GBCoordinador.Controls.Add(Me.BtnCreateAccCoordinator)
+        Me.GBCoordinador.Controls.Add(Me.CoordinatorTelephoneNumber)
+        Me.GBCoordinador.Controls.Add(Me.Label10)
+        Me.GBCoordinador.Controls.Add(Me.CoordinatorEmail)
+        Me.GBCoordinador.Controls.Add(Me.Label11)
+        Me.GBCoordinador.Controls.Add(Me.CoordinatorLastName)
+        Me.GBCoordinador.Controls.Add(Me.Label12)
+        Me.GBCoordinador.Controls.Add(Me.CoordinatorName)
+        Me.GBCoordinador.Controls.Add(Me.Label13)
+        Me.GBCoordinador.Location = New System.Drawing.Point(28, 135)
+        Me.GBCoordinador.Name = "GBCoordinador"
+        Me.GBCoordinador.Size = New System.Drawing.Size(378, 318)
+        Me.GBCoordinador.TabIndex = 13
+        Me.GBCoordinador.TabStop = False
+        Me.GBCoordinador.Text = "Coordinador"
+        '
+        'BtnCreateAccCoordinator
+        '
+        Me.BtnCreateAccCoordinator.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom), System.Windows.Forms.AnchorStyles)
+        Me.BtnCreateAccCoordinator.Location = New System.Drawing.Point(138, 280)
+        Me.BtnCreateAccCoordinator.Name = "BtnCreateAccCoordinator"
+        Me.BtnCreateAccCoordinator.Size = New System.Drawing.Size(111, 23)
+        Me.BtnCreateAccCoordinator.TabIndex = 8
+        Me.BtnCreateAccCoordinator.Text = "Crear cuenta"
+        Me.BtnCreateAccCoordinator.UseVisualStyleBackColor = True
+        '
+        'CoordinatorTelephoneNumber
+        '
+        Me.CoordinatorTelephoneNumber.Location = New System.Drawing.Point(20, 242)
+        Me.CoordinatorTelephoneNumber.Name = "CoordinatorTelephoneNumber"
+        Me.CoordinatorTelephoneNumber.Size = New System.Drawing.Size(337, 22)
+        Me.CoordinatorTelephoneNumber.TabIndex = 12
+        '
+        'Label10
+        '
+        Me.Label10.AutoSize = True
+        Me.Label10.Font = New System.Drawing.Font("Arial Rounded MT Bold", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label10.ForeColor = System.Drawing.SystemColors.ControlDarkDark
+        Me.Label10.Location = New System.Drawing.Point(17, 224)
+        Me.Label10.Name = "Label10"
+        Me.Label10.Size = New System.Drawing.Size(63, 15)
+        Me.Label10.TabIndex = 11
+        Me.Label10.Text = "Telefono"
+        '
+        'CoordinatorEmail
+        '
+        Me.CoordinatorEmail.Location = New System.Drawing.Point(20, 178)
+        Me.CoordinatorEmail.Name = "CoordinatorEmail"
+        Me.CoordinatorEmail.Size = New System.Drawing.Size(337, 22)
+        Me.CoordinatorEmail.TabIndex = 9
+        '
+        'Label11
+        '
+        Me.Label11.AutoSize = True
+        Me.Label11.Font = New System.Drawing.Font("Arial Rounded MT Bold", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label11.ForeColor = System.Drawing.SystemColors.ControlDarkDark
+        Me.Label11.Location = New System.Drawing.Point(17, 160)
+        Me.Label11.Name = "Label11"
+        Me.Label11.Size = New System.Drawing.Size(53, 15)
+        Me.Label11.TabIndex = 8
+        Me.Label11.Text = "Correo"
+        '
+        'CoordinatorLastName
+        '
+        Me.CoordinatorLastName.Location = New System.Drawing.Point(20, 117)
+        Me.CoordinatorLastName.Name = "CoordinatorLastName"
+        Me.CoordinatorLastName.Size = New System.Drawing.Size(337, 22)
+        Me.CoordinatorLastName.TabIndex = 10
+        '
+        'Label12
+        '
+        Me.Label12.AutoSize = True
+        Me.Label12.Font = New System.Drawing.Font("Arial Rounded MT Bold", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label12.ForeColor = System.Drawing.SystemColors.ControlDarkDark
+        Me.Label12.Location = New System.Drawing.Point(17, 99)
+        Me.Label12.Name = "Label12"
+        Me.Label12.Size = New System.Drawing.Size(60, 15)
+        Me.Label12.TabIndex = 9
+        Me.Label12.Text = "Apellido"
+        '
+        'CoordinatorName
+        '
+        Me.CoordinatorName.Location = New System.Drawing.Point(20, 57)
+        Me.CoordinatorName.Name = "CoordinatorName"
+        Me.CoordinatorName.Size = New System.Drawing.Size(337, 22)
+        Me.CoordinatorName.TabIndex = 8
+        '
+        'Label13
+        '
+        Me.Label13.AutoSize = True
+        Me.Label13.Font = New System.Drawing.Font("Arial Rounded MT Bold", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label13.ForeColor = System.Drawing.SystemColors.ControlDarkDark
+        Me.Label13.Location = New System.Drawing.Point(17, 39)
+        Me.Label13.Name = "Label13"
+        Me.Label13.Size = New System.Drawing.Size(59, 15)
+        Me.Label13.TabIndex = 8
+        Me.Label13.Text = "Nombre"
         '
         'GBEstudiante
         '
@@ -209,106 +309,6 @@ Partial Class Login
         Me.PictureBox1.TabIndex = 0
         Me.PictureBox1.TabStop = False
         '
-        'GPCoordinador
-        '
-        Me.GPCoordinador.Controls.Add(Me.BtnCreateAccCoordinator)
-        Me.GPCoordinador.Controls.Add(Me.CoordinatorTelephoneNumber)
-        Me.GPCoordinador.Controls.Add(Me.Label10)
-        Me.GPCoordinador.Controls.Add(Me.CoordinatorEmail)
-        Me.GPCoordinador.Controls.Add(Me.Label11)
-        Me.GPCoordinador.Controls.Add(Me.CoordinatorLastName)
-        Me.GPCoordinador.Controls.Add(Me.Label12)
-        Me.GPCoordinador.Controls.Add(Me.CoordinatorName)
-        Me.GPCoordinador.Controls.Add(Me.Label13)
-        Me.GPCoordinador.Location = New System.Drawing.Point(28, 135)
-        Me.GPCoordinador.Name = "GPCoordinador"
-        Me.GPCoordinador.Size = New System.Drawing.Size(378, 318)
-        Me.GPCoordinador.TabIndex = 13
-        Me.GPCoordinador.TabStop = False
-        Me.GPCoordinador.Text = "Coordinador"
-        '
-        'BtnCreateAccCoordinator
-        '
-        Me.BtnCreateAccCoordinator.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom), System.Windows.Forms.AnchorStyles)
-        Me.BtnCreateAccCoordinator.Location = New System.Drawing.Point(138, 280)
-        Me.BtnCreateAccCoordinator.Name = "BtnCreateAccCoordinator"
-        Me.BtnCreateAccCoordinator.Size = New System.Drawing.Size(111, 23)
-        Me.BtnCreateAccCoordinator.TabIndex = 8
-        Me.BtnCreateAccCoordinator.Text = "Crear cuenta"
-        Me.BtnCreateAccCoordinator.UseVisualStyleBackColor = True
-        '
-        'CoordinatorTelephoneNumber
-        '
-        Me.CoordinatorTelephoneNumber.Location = New System.Drawing.Point(20, 242)
-        Me.CoordinatorTelephoneNumber.Name = "CoordinatorTelephoneNumber"
-        Me.CoordinatorTelephoneNumber.Size = New System.Drawing.Size(337, 22)
-        Me.CoordinatorTelephoneNumber.TabIndex = 12
-        '
-        'Label10
-        '
-        Me.Label10.AutoSize = True
-        Me.Label10.Font = New System.Drawing.Font("Arial Rounded MT Bold", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label10.ForeColor = System.Drawing.SystemColors.ControlDarkDark
-        Me.Label10.Location = New System.Drawing.Point(17, 224)
-        Me.Label10.Name = "Label10"
-        Me.Label10.Size = New System.Drawing.Size(63, 15)
-        Me.Label10.TabIndex = 11
-        Me.Label10.Text = "Telefono"
-        '
-        'CoordinatorEmail
-        '
-        Me.CoordinatorEmail.Location = New System.Drawing.Point(20, 178)
-        Me.CoordinatorEmail.Name = "CoordinatorEmail"
-        Me.CoordinatorEmail.Size = New System.Drawing.Size(337, 22)
-        Me.CoordinatorEmail.TabIndex = 9
-        '
-        'Label11
-        '
-        Me.Label11.AutoSize = True
-        Me.Label11.Font = New System.Drawing.Font("Arial Rounded MT Bold", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label11.ForeColor = System.Drawing.SystemColors.ControlDarkDark
-        Me.Label11.Location = New System.Drawing.Point(17, 160)
-        Me.Label11.Name = "Label11"
-        Me.Label11.Size = New System.Drawing.Size(53, 15)
-        Me.Label11.TabIndex = 8
-        Me.Label11.Text = "Correo"
-        '
-        'CoordinatorLastName
-        '
-        Me.CoordinatorLastName.Location = New System.Drawing.Point(20, 117)
-        Me.CoordinatorLastName.Name = "CoordinatorLastName"
-        Me.CoordinatorLastName.Size = New System.Drawing.Size(337, 22)
-        Me.CoordinatorLastName.TabIndex = 10
-        '
-        'Label12
-        '
-        Me.Label12.AutoSize = True
-        Me.Label12.Font = New System.Drawing.Font("Arial Rounded MT Bold", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label12.ForeColor = System.Drawing.SystemColors.ControlDarkDark
-        Me.Label12.Location = New System.Drawing.Point(17, 99)
-        Me.Label12.Name = "Label12"
-        Me.Label12.Size = New System.Drawing.Size(60, 15)
-        Me.Label12.TabIndex = 9
-        Me.Label12.Text = "Apellido"
-        '
-        'CoordinatorName
-        '
-        Me.CoordinatorName.Location = New System.Drawing.Point(20, 57)
-        Me.CoordinatorName.Name = "CoordinatorName"
-        Me.CoordinatorName.Size = New System.Drawing.Size(337, 22)
-        Me.CoordinatorName.TabIndex = 8
-        '
-        'Label13
-        '
-        Me.Label13.AutoSize = True
-        Me.Label13.Font = New System.Drawing.Font("Arial Rounded MT Bold", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label13.ForeColor = System.Drawing.SystemColors.ControlDarkDark
-        Me.Label13.Location = New System.Drawing.Point(17, 39)
-        Me.Label13.Name = "Label13"
-        Me.Label13.Size = New System.Drawing.Size(59, 15)
-        Me.Label13.TabIndex = 8
-        Me.Label13.Text = "Nombre"
-        '
         'SignIn
         '
         Me.SignIn.BackColor = System.Drawing.Color.White
@@ -418,11 +418,11 @@ Partial Class Login
         Me.Text = "Login"
         Me.Register.ResumeLayout(False)
         Me.Register.PerformLayout()
+        Me.GBCoordinador.ResumeLayout(False)
+        Me.GBCoordinador.PerformLayout()
         Me.GBEstudiante.ResumeLayout(False)
         Me.GBEstudiante.PerformLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.GPCoordinador.ResumeLayout(False)
-        Me.GPCoordinador.PerformLayout()
         Me.SignIn.ResumeLayout(False)
         Me.SignIn.PerformLayout()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).EndInit()
@@ -453,7 +453,7 @@ Partial Class Login
     Friend WithEvents Label7 As Label
     Friend WithEvents StudentName As TextBox
     Friend WithEvents Label6 As Label
-    Friend WithEvents GPCoordinador As GroupBox
+    Friend WithEvents GBCoordinador As GroupBox
     Friend WithEvents BtnCreateAccCoordinator As Button
     Friend WithEvents CoordinatorTelephoneNumber As TextBox
     Friend WithEvents Label10 As Label
