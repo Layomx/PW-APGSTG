@@ -23,9 +23,12 @@ Partial Class Login
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.Register = New System.Windows.Forms.GroupBox()
-        Me.GBCoordinador = New System.Windows.Forms.GroupBox()
+        Me.GBCoordinator = New System.Windows.Forms.GroupBox()
+        Me.HideShowPasswordCoordinator = New System.Windows.Forms.PictureBox()
+        Me.CoordinatorPassword = New System.Windows.Forms.TextBox()
         Me.BtnCreateAccCoordinator = New System.Windows.Forms.Button()
         Me.CoordinatorTelephoneNumber = New System.Windows.Forms.TextBox()
+        Me.Label20 = New System.Windows.Forms.Label()
         Me.Label10 = New System.Windows.Forms.Label()
         Me.CoordinatorEmail = New System.Windows.Forms.TextBox()
         Me.Label11 = New System.Windows.Forms.Label()
@@ -33,7 +36,23 @@ Partial Class Login
         Me.Label12 = New System.Windows.Forms.Label()
         Me.CoordinatorName = New System.Windows.Forms.TextBox()
         Me.Label13 = New System.Windows.Forms.Label()
+        Me.GBEmpresa = New System.Windows.Forms.GroupBox()
+        Me.HideShowPasswordCompany = New System.Windows.Forms.PictureBox()
+        Me.CompanyPassword = New System.Windows.Forms.TextBox()
+        Me.Button1 = New System.Windows.Forms.Button()
+        Me.Label19 = New System.Windows.Forms.Label()
+        Me.CompanyTelephoneNumber = New System.Windows.Forms.TextBox()
+        Me.Label14 = New System.Windows.Forms.Label()
+        Me.CompanyEmail = New System.Windows.Forms.TextBox()
+        Me.Label15 = New System.Windows.Forms.Label()
+        Me.CompanyAddress = New System.Windows.Forms.TextBox()
+        Me.Label16 = New System.Windows.Forms.Label()
+        Me.CompanyName = New System.Windows.Forms.TextBox()
+        Me.Label17 = New System.Windows.Forms.Label()
         Me.GBEstudiante = New System.Windows.Forms.GroupBox()
+        Me.HideShowPasswordStudent = New System.Windows.Forms.PictureBox()
+        Me.StudentPassword = New System.Windows.Forms.TextBox()
+        Me.Label18 = New System.Windows.Forms.Label()
         Me.BtnCreateAccStudent = New System.Windows.Forms.Button()
         Me.StudentAddress = New System.Windows.Forms.TextBox()
         Me.Label9 = New System.Windows.Forms.Label()
@@ -47,6 +66,7 @@ Partial Class Login
         Me.Label1 = New System.Windows.Forms.Label()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.SignIn = New System.Windows.Forms.GroupBox()
+        Me.HideShowPasswordSign = New System.Windows.Forms.PictureBox()
         Me.BtnSignIn = New System.Windows.Forms.Button()
         Me.PasswordSign = New System.Windows.Forms.TextBox()
         Me.Label5 = New System.Windows.Forms.Label()
@@ -56,51 +76,77 @@ Partial Class Login
         Me.Label2 = New System.Windows.Forms.Label()
         Me.PictureBox2 = New System.Windows.Forms.PictureBox()
         Me.Register.SuspendLayout()
-        Me.GBCoordinador.SuspendLayout()
+        Me.GBCoordinator.SuspendLayout()
+        CType(Me.HideShowPasswordCoordinator, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.GBEmpresa.SuspendLayout()
+        CType(Me.HideShowPasswordCompany, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GBEstudiante.SuspendLayout()
+        CType(Me.HideShowPasswordStudent, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SignIn.SuspendLayout()
+        CType(Me.HideShowPasswordSign, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Register
         '
         Me.Register.BackColor = System.Drawing.Color.White
-        Me.Register.Controls.Add(Me.GBCoordinador)
+        Me.Register.Controls.Add(Me.GBCoordinator)
+        Me.Register.Controls.Add(Me.GBEmpresa)
         Me.Register.Controls.Add(Me.GBEstudiante)
         Me.Register.Controls.Add(Me.AccountType)
         Me.Register.Controls.Add(Me.Label1)
         Me.Register.Controls.Add(Me.PictureBox1)
-        Me.Register.Location = New System.Drawing.Point(471, 37)
+        Me.Register.Location = New System.Drawing.Point(496, 36)
         Me.Register.Name = "Register"
-        Me.Register.Size = New System.Drawing.Size(426, 480)
+        Me.Register.Size = New System.Drawing.Size(426, 536)
         Me.Register.TabIndex = 0
         Me.Register.TabStop = False
         '
-        'GBCoordinador
+        'GBCoordinator
         '
-        Me.GBCoordinador.Controls.Add(Me.BtnCreateAccCoordinator)
-        Me.GBCoordinador.Controls.Add(Me.CoordinatorTelephoneNumber)
-        Me.GBCoordinador.Controls.Add(Me.Label10)
-        Me.GBCoordinador.Controls.Add(Me.CoordinatorEmail)
-        Me.GBCoordinador.Controls.Add(Me.Label11)
-        Me.GBCoordinador.Controls.Add(Me.CoordinatorLastName)
-        Me.GBCoordinador.Controls.Add(Me.Label12)
-        Me.GBCoordinador.Controls.Add(Me.CoordinatorName)
-        Me.GBCoordinador.Controls.Add(Me.Label13)
-        Me.GBCoordinador.Location = New System.Drawing.Point(28, 135)
-        Me.GBCoordinador.Name = "GBCoordinador"
-        Me.GBCoordinador.Size = New System.Drawing.Size(378, 318)
-        Me.GBCoordinador.TabIndex = 13
-        Me.GBCoordinador.TabStop = False
-        Me.GBCoordinador.Text = "Coordinador"
+        Me.GBCoordinator.Controls.Add(Me.HideShowPasswordCoordinator)
+        Me.GBCoordinator.Controls.Add(Me.CoordinatorPassword)
+        Me.GBCoordinator.Controls.Add(Me.BtnCreateAccCoordinator)
+        Me.GBCoordinator.Controls.Add(Me.CoordinatorTelephoneNumber)
+        Me.GBCoordinator.Controls.Add(Me.Label20)
+        Me.GBCoordinator.Controls.Add(Me.Label10)
+        Me.GBCoordinator.Controls.Add(Me.CoordinatorEmail)
+        Me.GBCoordinator.Controls.Add(Me.Label11)
+        Me.GBCoordinator.Controls.Add(Me.CoordinatorLastName)
+        Me.GBCoordinator.Controls.Add(Me.Label12)
+        Me.GBCoordinator.Controls.Add(Me.CoordinatorName)
+        Me.GBCoordinator.Controls.Add(Me.Label13)
+        Me.GBCoordinator.Location = New System.Drawing.Point(29, 140)
+        Me.GBCoordinator.Name = "GBCoordinator"
+        Me.GBCoordinator.Size = New System.Drawing.Size(378, 366)
+        Me.GBCoordinator.TabIndex = 13
+        Me.GBCoordinator.TabStop = False
+        Me.GBCoordinator.Text = "Coordinador"
+        '
+        'HideShowPasswordCoordinator
+        '
+        Me.HideShowPasswordCoordinator.Image = Global.PW_APGSTG.My.Resources.Resources.Contraseña
+        Me.HideShowPasswordCoordinator.Location = New System.Drawing.Point(333, 296)
+        Me.HideShowPasswordCoordinator.Name = "HideShowPasswordCoordinator"
+        Me.HideShowPasswordCoordinator.Size = New System.Drawing.Size(24, 22)
+        Me.HideShowPasswordCoordinator.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.HideShowPasswordCoordinator.TabIndex = 9
+        Me.HideShowPasswordCoordinator.TabStop = False
+        '
+        'CoordinatorPassword
+        '
+        Me.CoordinatorPassword.Location = New System.Drawing.Point(20, 296)
+        Me.CoordinatorPassword.Name = "CoordinatorPassword"
+        Me.CoordinatorPassword.Size = New System.Drawing.Size(305, 22)
+        Me.CoordinatorPassword.TabIndex = 16
         '
         'BtnCreateAccCoordinator
         '
         Me.BtnCreateAccCoordinator.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom), System.Windows.Forms.AnchorStyles)
-        Me.BtnCreateAccCoordinator.Location = New System.Drawing.Point(138, 280)
+        Me.BtnCreateAccCoordinator.Location = New System.Drawing.Point(138, 328)
         Me.BtnCreateAccCoordinator.Name = "BtnCreateAccCoordinator"
-        Me.BtnCreateAccCoordinator.Size = New System.Drawing.Size(111, 23)
+        Me.BtnCreateAccCoordinator.Size = New System.Drawing.Size(111, 32)
         Me.BtnCreateAccCoordinator.TabIndex = 8
         Me.BtnCreateAccCoordinator.Text = "Crear cuenta"
         Me.BtnCreateAccCoordinator.UseVisualStyleBackColor = True
@@ -111,6 +157,17 @@ Partial Class Login
         Me.CoordinatorTelephoneNumber.Name = "CoordinatorTelephoneNumber"
         Me.CoordinatorTelephoneNumber.Size = New System.Drawing.Size(337, 22)
         Me.CoordinatorTelephoneNumber.TabIndex = 12
+        '
+        'Label20
+        '
+        Me.Label20.AutoSize = True
+        Me.Label20.Font = New System.Drawing.Font("Arial Rounded MT Bold", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label20.ForeColor = System.Drawing.SystemColors.ControlDarkDark
+        Me.Label20.Location = New System.Drawing.Point(17, 278)
+        Me.Label20.Name = "Label20"
+        Me.Label20.Size = New System.Drawing.Size(83, 15)
+        Me.Label20.TabIndex = 15
+        Me.Label20.Text = "Contraseña"
         '
         'Label10
         '
@@ -177,8 +234,142 @@ Partial Class Login
         Me.Label13.TabIndex = 8
         Me.Label13.Text = "Nombre"
         '
+        'GBEmpresa
+        '
+        Me.GBEmpresa.Controls.Add(Me.HideShowPasswordCompany)
+        Me.GBEmpresa.Controls.Add(Me.CompanyPassword)
+        Me.GBEmpresa.Controls.Add(Me.Button1)
+        Me.GBEmpresa.Controls.Add(Me.Label19)
+        Me.GBEmpresa.Controls.Add(Me.CompanyTelephoneNumber)
+        Me.GBEmpresa.Controls.Add(Me.Label14)
+        Me.GBEmpresa.Controls.Add(Me.CompanyEmail)
+        Me.GBEmpresa.Controls.Add(Me.Label15)
+        Me.GBEmpresa.Controls.Add(Me.CompanyAddress)
+        Me.GBEmpresa.Controls.Add(Me.Label16)
+        Me.GBEmpresa.Controls.Add(Me.CompanyName)
+        Me.GBEmpresa.Controls.Add(Me.Label17)
+        Me.GBEmpresa.Location = New System.Drawing.Point(29, 143)
+        Me.GBEmpresa.Name = "GBEmpresa"
+        Me.GBEmpresa.Size = New System.Drawing.Size(378, 372)
+        Me.GBEmpresa.TabIndex = 14
+        Me.GBEmpresa.TabStop = False
+        Me.GBEmpresa.Text = "Empresa"
+        '
+        'HideShowPasswordCompany
+        '
+        Me.HideShowPasswordCompany.Image = Global.PW_APGSTG.My.Resources.Resources.Contraseña
+        Me.HideShowPasswordCompany.Location = New System.Drawing.Point(333, 293)
+        Me.HideShowPasswordCompany.Name = "HideShowPasswordCompany"
+        Me.HideShowPasswordCompany.Size = New System.Drawing.Size(24, 22)
+        Me.HideShowPasswordCompany.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.HideShowPasswordCompany.TabIndex = 17
+        Me.HideShowPasswordCompany.TabStop = False
+        '
+        'CompanyPassword
+        '
+        Me.CompanyPassword.Location = New System.Drawing.Point(20, 293)
+        Me.CompanyPassword.Name = "CompanyPassword"
+        Me.CompanyPassword.Size = New System.Drawing.Size(307, 22)
+        Me.CompanyPassword.TabIndex = 16
+        '
+        'Button1
+        '
+        Me.Button1.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom), System.Windows.Forms.AnchorStyles)
+        Me.Button1.Location = New System.Drawing.Point(138, 328)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(111, 29)
+        Me.Button1.TabIndex = 8
+        Me.Button1.Text = "Crear cuenta"
+        Me.Button1.UseVisualStyleBackColor = True
+        '
+        'Label19
+        '
+        Me.Label19.AutoSize = True
+        Me.Label19.Font = New System.Drawing.Font("Arial Rounded MT Bold", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label19.ForeColor = System.Drawing.SystemColors.ControlDarkDark
+        Me.Label19.Location = New System.Drawing.Point(17, 275)
+        Me.Label19.Name = "Label19"
+        Me.Label19.Size = New System.Drawing.Size(83, 15)
+        Me.Label19.TabIndex = 15
+        Me.Label19.Text = "Contraseña"
+        '
+        'CompanyTelephoneNumber
+        '
+        Me.CompanyTelephoneNumber.Location = New System.Drawing.Point(20, 239)
+        Me.CompanyTelephoneNumber.Name = "CompanyTelephoneNumber"
+        Me.CompanyTelephoneNumber.Size = New System.Drawing.Size(337, 22)
+        Me.CompanyTelephoneNumber.TabIndex = 12
+        '
+        'Label14
+        '
+        Me.Label14.AutoSize = True
+        Me.Label14.Font = New System.Drawing.Font("Arial Rounded MT Bold", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label14.ForeColor = System.Drawing.SystemColors.ControlDarkDark
+        Me.Label14.Location = New System.Drawing.Point(17, 221)
+        Me.Label14.Name = "Label14"
+        Me.Label14.Size = New System.Drawing.Size(63, 15)
+        Me.Label14.TabIndex = 11
+        Me.Label14.Text = "Telefono"
+        '
+        'CompanyEmail
+        '
+        Me.CompanyEmail.Location = New System.Drawing.Point(20, 178)
+        Me.CompanyEmail.Name = "CompanyEmail"
+        Me.CompanyEmail.Size = New System.Drawing.Size(337, 22)
+        Me.CompanyEmail.TabIndex = 9
+        '
+        'Label15
+        '
+        Me.Label15.AutoSize = True
+        Me.Label15.Font = New System.Drawing.Font("Arial Rounded MT Bold", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label15.ForeColor = System.Drawing.SystemColors.ControlDarkDark
+        Me.Label15.Location = New System.Drawing.Point(17, 160)
+        Me.Label15.Name = "Label15"
+        Me.Label15.Size = New System.Drawing.Size(53, 15)
+        Me.Label15.TabIndex = 8
+        Me.Label15.Text = "Correo"
+        '
+        'CompanyAddress
+        '
+        Me.CompanyAddress.Location = New System.Drawing.Point(20, 117)
+        Me.CompanyAddress.Name = "CompanyAddress"
+        Me.CompanyAddress.Size = New System.Drawing.Size(337, 22)
+        Me.CompanyAddress.TabIndex = 10
+        '
+        'Label16
+        '
+        Me.Label16.AutoSize = True
+        Me.Label16.Font = New System.Drawing.Font("Arial Rounded MT Bold", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label16.ForeColor = System.Drawing.SystemColors.ControlDarkDark
+        Me.Label16.Location = New System.Drawing.Point(17, 99)
+        Me.Label16.Name = "Label16"
+        Me.Label16.Size = New System.Drawing.Size(71, 15)
+        Me.Label16.TabIndex = 9
+        Me.Label16.Text = "Direccion"
+        '
+        'CompanyName
+        '
+        Me.CompanyName.Location = New System.Drawing.Point(20, 57)
+        Me.CompanyName.Name = "CompanyName"
+        Me.CompanyName.Size = New System.Drawing.Size(337, 22)
+        Me.CompanyName.TabIndex = 8
+        '
+        'Label17
+        '
+        Me.Label17.AutoSize = True
+        Me.Label17.Font = New System.Drawing.Font("Arial Rounded MT Bold", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label17.ForeColor = System.Drawing.SystemColors.ControlDarkDark
+        Me.Label17.Location = New System.Drawing.Point(17, 39)
+        Me.Label17.Name = "Label17"
+        Me.Label17.Size = New System.Drawing.Size(59, 15)
+        Me.Label17.TabIndex = 8
+        Me.Label17.Text = "Nombre"
+        '
         'GBEstudiante
         '
+        Me.GBEstudiante.Controls.Add(Me.HideShowPasswordStudent)
+        Me.GBEstudiante.Controls.Add(Me.StudentPassword)
+        Me.GBEstudiante.Controls.Add(Me.Label18)
         Me.GBEstudiante.Controls.Add(Me.BtnCreateAccStudent)
         Me.GBEstudiante.Controls.Add(Me.StudentAddress)
         Me.GBEstudiante.Controls.Add(Me.Label9)
@@ -188,19 +379,47 @@ Partial Class Login
         Me.GBEstudiante.Controls.Add(Me.Label7)
         Me.GBEstudiante.Controls.Add(Me.StudentName)
         Me.GBEstudiante.Controls.Add(Me.Label6)
-        Me.GBEstudiante.Location = New System.Drawing.Point(28, 135)
+        Me.GBEstudiante.Location = New System.Drawing.Point(29, 146)
         Me.GBEstudiante.Name = "GBEstudiante"
-        Me.GBEstudiante.Size = New System.Drawing.Size(378, 318)
+        Me.GBEstudiante.Size = New System.Drawing.Size(378, 375)
         Me.GBEstudiante.TabIndex = 3
         Me.GBEstudiante.TabStop = False
         Me.GBEstudiante.Text = "Estudiante"
         '
+        'HideShowPasswordStudent
+        '
+        Me.HideShowPasswordStudent.Image = Global.PW_APGSTG.My.Resources.Resources.Contraseña
+        Me.HideShowPasswordStudent.Location = New System.Drawing.Point(333, 295)
+        Me.HideShowPasswordStudent.Name = "HideShowPasswordStudent"
+        Me.HideShowPasswordStudent.Size = New System.Drawing.Size(24, 22)
+        Me.HideShowPasswordStudent.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.HideShowPasswordStudent.TabIndex = 14
+        Me.HideShowPasswordStudent.TabStop = False
+        '
+        'StudentPassword
+        '
+        Me.StudentPassword.Location = New System.Drawing.Point(20, 296)
+        Me.StudentPassword.Name = "StudentPassword"
+        Me.StudentPassword.Size = New System.Drawing.Size(305, 22)
+        Me.StudentPassword.TabIndex = 14
+        '
+        'Label18
+        '
+        Me.Label18.AutoSize = True
+        Me.Label18.Font = New System.Drawing.Font("Arial Rounded MT Bold", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label18.ForeColor = System.Drawing.SystemColors.ControlDarkDark
+        Me.Label18.Location = New System.Drawing.Point(17, 278)
+        Me.Label18.Name = "Label18"
+        Me.Label18.Size = New System.Drawing.Size(83, 15)
+        Me.Label18.TabIndex = 13
+        Me.Label18.Text = "Contraseña"
+        '
         'BtnCreateAccStudent
         '
         Me.BtnCreateAccStudent.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom), System.Windows.Forms.AnchorStyles)
-        Me.BtnCreateAccStudent.Location = New System.Drawing.Point(138, 280)
+        Me.BtnCreateAccStudent.Location = New System.Drawing.Point(138, 329)
         Me.BtnCreateAccStudent.Name = "BtnCreateAccStudent"
-        Me.BtnCreateAccStudent.Size = New System.Drawing.Size(111, 23)
+        Me.BtnCreateAccStudent.Size = New System.Drawing.Size(111, 31)
         Me.BtnCreateAccStudent.TabIndex = 8
         Me.BtnCreateAccStudent.Text = "Crear cuenta"
         Me.BtnCreateAccStudent.UseVisualStyleBackColor = True
@@ -312,6 +531,7 @@ Partial Class Login
         'SignIn
         '
         Me.SignIn.BackColor = System.Drawing.Color.White
+        Me.SignIn.Controls.Add(Me.HideShowPasswordSign)
         Me.SignIn.Controls.Add(Me.BtnSignIn)
         Me.SignIn.Controls.Add(Me.PasswordSign)
         Me.SignIn.Controls.Add(Me.Label5)
@@ -320,11 +540,21 @@ Partial Class Login
         Me.SignIn.Controls.Add(Me.Label3)
         Me.SignIn.Controls.Add(Me.Label2)
         Me.SignIn.Controls.Add(Me.PictureBox2)
-        Me.SignIn.Location = New System.Drawing.Point(53, 88)
+        Me.SignIn.Location = New System.Drawing.Point(54, 125)
         Me.SignIn.Name = "SignIn"
         Me.SignIn.Size = New System.Drawing.Size(352, 377)
         Me.SignIn.TabIndex = 1
         Me.SignIn.TabStop = False
+        '
+        'HideShowPasswordSign
+        '
+        Me.HideShowPasswordSign.Image = Global.PW_APGSTG.My.Resources.Resources.Contraseña
+        Me.HideShowPasswordSign.Location = New System.Drawing.Point(322, 238)
+        Me.HideShowPasswordSign.Name = "HideShowPasswordSign"
+        Me.HideShowPasswordSign.Size = New System.Drawing.Size(24, 22)
+        Me.HideShowPasswordSign.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.HideShowPasswordSign.TabIndex = 8
+        Me.HideShowPasswordSign.TabStop = False
         '
         'BtnSignIn
         '
@@ -411,20 +641,26 @@ Partial Class Login
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.Gainsboro
-        Me.ClientSize = New System.Drawing.Size(946, 550)
+        Me.ClientSize = New System.Drawing.Size(971, 610)
         Me.Controls.Add(Me.SignIn)
         Me.Controls.Add(Me.Register)
         Me.Name = "Login"
         Me.Text = "Login"
         Me.Register.ResumeLayout(False)
         Me.Register.PerformLayout()
-        Me.GBCoordinador.ResumeLayout(False)
-        Me.GBCoordinador.PerformLayout()
+        Me.GBCoordinator.ResumeLayout(False)
+        Me.GBCoordinator.PerformLayout()
+        CType(Me.HideShowPasswordCoordinator, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.GBEmpresa.ResumeLayout(False)
+        Me.GBEmpresa.PerformLayout()
+        CType(Me.HideShowPasswordCompany, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GBEstudiante.ResumeLayout(False)
         Me.GBEstudiante.PerformLayout()
+        CType(Me.HideShowPasswordStudent, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.SignIn.ResumeLayout(False)
         Me.SignIn.PerformLayout()
+        CType(Me.HideShowPasswordSign, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
@@ -453,7 +689,6 @@ Partial Class Login
     Friend WithEvents Label7 As Label
     Friend WithEvents StudentName As TextBox
     Friend WithEvents Label6 As Label
-    Friend WithEvents GBCoordinador As GroupBox
     Friend WithEvents BtnCreateAccCoordinator As Button
     Friend WithEvents CoordinatorTelephoneNumber As TextBox
     Friend WithEvents Label10 As Label
@@ -463,4 +698,25 @@ Partial Class Login
     Friend WithEvents Label12 As Label
     Friend WithEvents CoordinatorName As TextBox
     Friend WithEvents Label13 As Label
+    Friend WithEvents Button1 As Button
+    Friend WithEvents CompanyTelephoneNumber As TextBox
+    Friend WithEvents Label14 As Label
+    Friend WithEvents CompanyEmail As TextBox
+    Friend WithEvents Label15 As Label
+    Friend WithEvents CompanyAddress As TextBox
+    Friend WithEvents Label16 As Label
+    Friend WithEvents CompanyName As TextBox
+    Friend WithEvents Label17 As Label
+    Friend WithEvents StudentPassword As TextBox
+    Friend WithEvents Label18 As Label
+    Friend WithEvents CoordinatorPassword As TextBox
+    Friend WithEvents Label20 As Label
+    Friend WithEvents CompanyPassword As TextBox
+    Friend WithEvents Label19 As Label
+    Friend WithEvents HideShowPasswordSign As PictureBox
+    Public WithEvents GBCoordinator As GroupBox
+    Public WithEvents GBEmpresa As GroupBox
+    Friend WithEvents HideShowPasswordCoordinator As PictureBox
+    Friend WithEvents HideShowPasswordCompany As PictureBox
+    Friend WithEvents HideShowPasswordStudent As PictureBox
 End Class
