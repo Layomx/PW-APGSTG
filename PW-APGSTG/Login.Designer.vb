@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class Login
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,7 +20,7 @@ Partial Class Login
     'NOTE: The following procedure is required by the Windows Form Designer
     'It can be modified using the Windows Form Designer.  
     'Do not modify it using the code editor.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.Register = New System.Windows.Forms.GroupBox()
         Me.GBCoordinator = New System.Windows.Forms.GroupBox()
@@ -75,6 +75,10 @@ Partial Class Login
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.PictureBox2 = New System.Windows.Forms.PictureBox()
+        Me.Label21 = New System.Windows.Forms.Label()
+        Me.FacultyStudent = New System.Windows.Forms.ComboBox()
+        Me.FacultyCoordinator = New System.Windows.Forms.ComboBox()
+        Me.Label22 = New System.Windows.Forms.Label()
         Me.Register.SuspendLayout()
         Me.GBCoordinator.SuspendLayout()
         CType(Me.HideShowPasswordCoordinator, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -97,14 +101,16 @@ Partial Class Login
         Me.Register.Controls.Add(Me.AccountType)
         Me.Register.Controls.Add(Me.Label1)
         Me.Register.Controls.Add(Me.PictureBox1)
-        Me.Register.Location = New System.Drawing.Point(496, 36)
+        Me.Register.Location = New System.Drawing.Point(524, 25)
         Me.Register.Name = "Register"
-        Me.Register.Size = New System.Drawing.Size(426, 536)
+        Me.Register.Size = New System.Drawing.Size(426, 635)
         Me.Register.TabIndex = 0
         Me.Register.TabStop = False
         '
         'GBCoordinator
         '
+        Me.GBCoordinator.Controls.Add(Me.FacultyCoordinator)
+        Me.GBCoordinator.Controls.Add(Me.Label22)
         Me.GBCoordinator.Controls.Add(Me.HideShowPasswordCoordinator)
         Me.GBCoordinator.Controls.Add(Me.CoordinatorPassword)
         Me.GBCoordinator.Controls.Add(Me.BtnCreateAccCoordinator)
@@ -117,9 +123,9 @@ Partial Class Login
         Me.GBCoordinator.Controls.Add(Me.Label12)
         Me.GBCoordinator.Controls.Add(Me.CoordinatorName)
         Me.GBCoordinator.Controls.Add(Me.Label13)
-        Me.GBCoordinator.Location = New System.Drawing.Point(29, 140)
+        Me.GBCoordinator.Location = New System.Drawing.Point(29, 146)
         Me.GBCoordinator.Name = "GBCoordinator"
-        Me.GBCoordinator.Size = New System.Drawing.Size(378, 366)
+        Me.GBCoordinator.Size = New System.Drawing.Size(378, 455)
         Me.GBCoordinator.TabIndex = 13
         Me.GBCoordinator.TabStop = False
         Me.GBCoordinator.Text = "Coordinador"
@@ -144,9 +150,9 @@ Partial Class Login
         'BtnCreateAccCoordinator
         '
         Me.BtnCreateAccCoordinator.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom), System.Windows.Forms.AnchorStyles)
-        Me.BtnCreateAccCoordinator.Location = New System.Drawing.Point(138, 328)
+        Me.BtnCreateAccCoordinator.Location = New System.Drawing.Point(138, 419)
         Me.BtnCreateAccCoordinator.Name = "BtnCreateAccCoordinator"
-        Me.BtnCreateAccCoordinator.Size = New System.Drawing.Size(111, 32)
+        Me.BtnCreateAccCoordinator.Size = New System.Drawing.Size(111, 30)
         Me.BtnCreateAccCoordinator.TabIndex = 8
         Me.BtnCreateAccCoordinator.Text = "Crear cuenta"
         Me.BtnCreateAccCoordinator.UseVisualStyleBackColor = True
@@ -248,7 +254,7 @@ Partial Class Login
         Me.GBEmpresa.Controls.Add(Me.Label16)
         Me.GBEmpresa.Controls.Add(Me.CompanyName)
         Me.GBEmpresa.Controls.Add(Me.Label17)
-        Me.GBEmpresa.Location = New System.Drawing.Point(29, 143)
+        Me.GBEmpresa.Location = New System.Drawing.Point(29, 145)
         Me.GBEmpresa.Name = "GBEmpresa"
         Me.GBEmpresa.Size = New System.Drawing.Size(378, 372)
         Me.GBEmpresa.TabIndex = 14
@@ -367,6 +373,8 @@ Partial Class Login
         '
         'GBEstudiante
         '
+        Me.GBEstudiante.Controls.Add(Me.FacultyStudent)
+        Me.GBEstudiante.Controls.Add(Me.Label21)
         Me.GBEstudiante.Controls.Add(Me.HideShowPasswordStudent)
         Me.GBEstudiante.Controls.Add(Me.StudentPassword)
         Me.GBEstudiante.Controls.Add(Me.Label18)
@@ -381,7 +389,7 @@ Partial Class Login
         Me.GBEstudiante.Controls.Add(Me.Label6)
         Me.GBEstudiante.Location = New System.Drawing.Point(29, 146)
         Me.GBEstudiante.Name = "GBEstudiante"
-        Me.GBEstudiante.Size = New System.Drawing.Size(378, 375)
+        Me.GBEstudiante.Size = New System.Drawing.Size(378, 455)
         Me.GBEstudiante.TabIndex = 3
         Me.GBEstudiante.TabStop = False
         Me.GBEstudiante.Text = "Estudiante"
@@ -417,9 +425,9 @@ Partial Class Login
         'BtnCreateAccStudent
         '
         Me.BtnCreateAccStudent.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom), System.Windows.Forms.AnchorStyles)
-        Me.BtnCreateAccStudent.Location = New System.Drawing.Point(138, 329)
+        Me.BtnCreateAccStudent.Location = New System.Drawing.Point(138, 411)
         Me.BtnCreateAccStudent.Name = "BtnCreateAccStudent"
-        Me.BtnCreateAccStudent.Size = New System.Drawing.Size(111, 31)
+        Me.BtnCreateAccStudent.Size = New System.Drawing.Size(111, 29)
         Me.BtnCreateAccStudent.TabIndex = 8
         Me.BtnCreateAccStudent.Text = "Crear cuenta"
         Me.BtnCreateAccStudent.UseVisualStyleBackColor = True
@@ -540,7 +548,7 @@ Partial Class Login
         Me.SignIn.Controls.Add(Me.Label3)
         Me.SignIn.Controls.Add(Me.Label2)
         Me.SignIn.Controls.Add(Me.PictureBox2)
-        Me.SignIn.Location = New System.Drawing.Point(54, 125)
+        Me.SignIn.Location = New System.Drawing.Point(58, 171)
         Me.SignIn.Name = "SignIn"
         Me.SignIn.Size = New System.Drawing.Size(352, 377)
         Me.SignIn.TabIndex = 1
@@ -636,12 +644,52 @@ Partial Class Login
         Me.PictureBox2.TabIndex = 0
         Me.PictureBox2.TabStop = False
         '
+        'Label21
+        '
+        Me.Label21.AutoSize = True
+        Me.Label21.Font = New System.Drawing.Font("Arial Rounded MT Bold", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label21.ForeColor = System.Drawing.SystemColors.ControlDarkDark
+        Me.Label21.Location = New System.Drawing.Point(17, 339)
+        Me.Label21.Name = "Label21"
+        Me.Label21.Size = New System.Drawing.Size(64, 15)
+        Me.Label21.TabIndex = 15
+        Me.Label21.Text = "Facultad"
+        '
+        'FacultyStudent
+        '
+        Me.FacultyStudent.FormattingEnabled = True
+        Me.FacultyStudent.Items.AddRange(New Object() {"Ingenieria en Sistemas Computacionales", "Ingenieria Mecanica", "Ciencias y Tecnologia"})
+        Me.FacultyStudent.Location = New System.Drawing.Point(20, 357)
+        Me.FacultyStudent.Name = "FacultyStudent"
+        Me.FacultyStudent.Size = New System.Drawing.Size(305, 24)
+        Me.FacultyStudent.TabIndex = 16
+        '
+        'FacultyCoordinator
+        '
+        Me.FacultyCoordinator.FormattingEnabled = True
+        Me.FacultyCoordinator.Items.AddRange(New Object() {"Ingenieria en Sistemas Computacionales", "Ingenieria Mecanica", "Ciencias y Tecnologia"})
+        Me.FacultyCoordinator.Location = New System.Drawing.Point(20, 347)
+        Me.FacultyCoordinator.Name = "FacultyCoordinator"
+        Me.FacultyCoordinator.Size = New System.Drawing.Size(305, 24)
+        Me.FacultyCoordinator.TabIndex = 18
+        '
+        'Label22
+        '
+        Me.Label22.AutoSize = True
+        Me.Label22.Font = New System.Drawing.Font("Arial Rounded MT Bold", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label22.ForeColor = System.Drawing.SystemColors.ControlDarkDark
+        Me.Label22.Location = New System.Drawing.Point(17, 329)
+        Me.Label22.Name = "Label22"
+        Me.Label22.Size = New System.Drawing.Size(64, 15)
+        Me.Label22.TabIndex = 17
+        Me.Label22.Text = "Facultad"
+        '
         'Login
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.Gainsboro
-        Me.ClientSize = New System.Drawing.Size(971, 610)
+        Me.ClientSize = New System.Drawing.Size(1041, 683)
         Me.Controls.Add(Me.SignIn)
         Me.Controls.Add(Me.Register)
         Me.Name = "Login"
@@ -719,4 +767,8 @@ Partial Class Login
     Friend WithEvents HideShowPasswordCoordinator As PictureBox
     Friend WithEvents HideShowPasswordCompany As PictureBox
     Friend WithEvents HideShowPasswordStudent As PictureBox
+    Friend WithEvents FacultyCoordinator As ComboBox
+    Friend WithEvents Label22 As Label
+    Friend WithEvents FacultyStudent As ComboBox
+    Friend WithEvents Label21 As Label
 End Class

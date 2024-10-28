@@ -1,4 +1,8 @@
-﻿Public Class Login
+﻿Imports System.Collections.Specialized
+Imports System.Configuration
+Imports System.Data.SqlClient
+
+Public Class Login
     ' Funciones
     ' Funcion para validar correos electronicos
     Private Function IsValidEmail(ByVal Email As String) As Boolean
@@ -54,7 +58,33 @@
             HideShowPasswordSign.Image = My.Resources.Contraseña
         End If
     End Sub
-
+    Private Sub HideShowPasswordStudent_Click(sender As Object, e As EventArgs) Handles HideShowPasswordStudent.Click
+        If StudentPassword.UseSystemPasswordChar = True Then
+            StudentPassword.UseSystemPasswordChar = False
+            HideShowPasswordStudent.Image = My.Resources.ContraseñaOculta
+        Else
+            StudentPassword.UseSystemPasswordChar = True
+            HideShowPasswordStudent.Image = My.Resources.Contraseña
+        End If
+    End Sub
+    Private Sub HideShowPasswordCoordinator_Click(sender As Object, e As EventArgs) Handles HideShowPasswordCoordinator.Click
+        If CoordinatorPassword.UseSystemPasswordChar = True Then
+            CoordinatorPassword.UseSystemPasswordChar = False
+            HideShowPasswordCoordinator.Image = My.Resources.ContraseñaOculta
+        Else
+            CoordinatorPassword.UseSystemPasswordChar = True
+            HideShowPasswordCoordinator.Image = My.Resources.Contraseña
+        End If
+    End Sub
+    Private Sub HideShowPasswordCompany_Click(sender As Object, e As EventArgs) Handles HideShowPasswordCompany.Click
+        If CompanyPassword.UseSystemPasswordChar = True Then
+            CompanyPassword.UseSystemPasswordChar = False
+            HideShowPasswordCompany.Image = My.Resources.ContraseñaOculta
+        Else
+            CompanyPassword.UseSystemPasswordChar = True
+            HideShowPasswordCompany.Image = My.Resources.Contraseña
+        End If
+    End Sub
 
     ' Mostrando los groupbox dependiendo de lo seleccionado
     Private Sub AccountType_SelectedIndexChanged(sender As Object, e As EventArgs) Handles AccountType.SelectedIndexChanged
@@ -163,5 +193,77 @@
             MessageBox.Show("Por favor ingrese un correo electronico valido", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning)
             CoordinatorEmail.Focus()
         End If
+    End Sub
+
+    ' Creando un usuario de tipo estudiante
+    Private Sub BtnCreateAccStudent_Click(sender As Object, e As EventArgs) Handles BtnCreateAccStudent.Click
+        ' Validando que los textbox no estan vacios
+        If StudentName.Text = "" Or StudentLastName.Text = "" Or StudentEmail.Text = "" Or StudentAddress.Text = "" Then
+            MessageBox.Show("Por favor, completa todos los campos correctmente", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            Return
+        End If
+
+        ' Conectando la base de datos
+        Dim connString = ConfigurationManager.ConnectionStrings("PW_APGSTG.My.MySettings.PW_APGSTGConnectionString").ConnectionString
+
+        ' Datos introducidos del estudiante
+        Dim ValStudentName As String = StudentName.Text
+        Dim ValStudentLastName As String = StudentLastName.Text
+        Dim ValStudentEmail As String = StudentEmail.Text
+        Dim ValStudentPassword As String = StudentPassword.Text
+        Dim ValStudentAddress As String = StudentAddress.Text
+        Dim IDFacultad As Integer
+
+        ' Facultad del estudiante
+        Select Case FacultyStudent.SelectedItem.ToString
+            Case "Ingenieria en Sistemas Computacionales"
+                IDFacultad = 1
+            Case "Ingenieria Mecanica"
+                IDFacultad = 2
+            Case "Ciencias y Tecnologia"
+                IDFacultad = 3
+        End Select
+
+        ' Conectando con la base de datos
+        Using conn As New SqlConnection(connString)
+            Try
+                ' Abriendo la conexion
+                conn.Open()
+
+                ' Verificando si el correo ya existe
+                Dim queryCheck As String = "SELECT COUNT(*) FRROM Usuario_Estudiante WHERE EmailEstudiante = @ValStudentEmail"
+                Using commandCheck As New SqlCommand(queryCheck, conn)
+                    commandCheck.Parameters.AddWithValue("@ValStudentEmail", ValStudentEmail)
+                    Dim existingEmail As Integer = Convert.ToInt32(commandCheck.ExecuteScalar())
+
+                    If existingEmail > 0 Then
+                        MessageBox.Show("El correo ya esta en uso. Introduzca un correo distinto.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+                        Return
+                    End If
+                End Using
+
+                Dim newQuery As String = "INSERTO INTO Usuario_Estudiante(NombreEstudiante, ApellidoEstudiante, Contraseña_Est, DireccionEstudiante, EmailEstudiante, ID_Facultad)" & "VALUES (@ValStudentName, @ValStudentLastName, @ValStudentPassword, @ValStudentAddress, @ValStudentEmail, @IDFacultad)"
+                Using commandInsert As New SqlCommand(newQuery, conn)
+                    commandInsert.Parameters.AddWithValue("@ValStudentName", ValStudentName)
+                    commandInsert.Parameters.AddWithValue("@ValStudentLastName", ValStudentLastName)
+                    commandInsert.Parameters.AddWithValue("@ValStudentPassword", ValStudentPassword)
+                    commandInsert.Parameters.AddWithValue("@ValStudentAddress", ValStudentAddress)
+                    commandInsert.Parameters.AddWithValue("@ValStudentEmail", ValStudentEmail)
+                    commandInsert.Parameters.AddWithValue("@IDFacultad", IDFacultad)
+
+                    Dim affectedRows As Integer = commandInsert.ExecuteNonQuery()
+
+                    If affectedRows > 0 Then
+                        MessageBox.Show("Datos guardados correctamente.", "Guardado exitoso", MessageBoxButtons.OK, MessageBoxIcon.None)
+                    Else
+                        MessageBox.Show("No se pudieron guardar los datos", "Error en el guardado", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+                    End If
+                End Using
+            Catch ex As Exception
+                MessageBox.Show("Error al guardar los datos: " & ex.Message)
+            Finally
+                conn.Close()
+            End Try
+        End Using
     End Sub
 End Class
