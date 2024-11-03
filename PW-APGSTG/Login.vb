@@ -29,6 +29,7 @@ Public Class Login
         Next
     End Sub
 
+    ' Carga del formulario de login y register
     Private Sub Login_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         ' Desactivando la navegacion por tabulador (personalmente es molesto)
         DisableTabStop(Me.Controls)
@@ -89,7 +90,7 @@ Public Class Login
         End If
     End Sub
 
-    ' Mostrando los groupbox dependiendo de lo seleccionado
+    ' Mostrando los groupbox dependiendo del tipo de cuenta seleccionada
     Private Sub AccountType_SelectedIndexChanged(sender As Object, e As EventArgs) Handles AccountType.SelectedIndexChanged
         Select Case AccountType.SelectedItem.ToString()
             Case "Estudiante"
@@ -122,6 +123,7 @@ Public Class Login
         End If
     End Sub
 
+    ' En el usuario empresa se permiten puntos para casos como "S.A"
     Private Sub CompanyName_KeyPress(sender As Object, e As KeyPressEventArgs) Handles CompanyName.KeyPress
         If Not Char.IsLetter(e.KeyChar) And Not e.KeyChar = Chr(Keys.Space) And Not e.KeyChar = Chr(Keys.Back) And Not e.KeyChar = "." Then
             e.Handled = True
@@ -241,9 +243,33 @@ Public Class Login
                 ' Abriendo la conexion
                 conn.Open()
 
-                ' Verificando si el correo ya existe
+                ' Verificando si el correo ya existe en la tabla de estudiantes
                 Dim queryCheck As String = "SELECT COUNT(*) FROM Usuario_Estudiante WHERE EmailEstudiante = @ValStudentEmail"
                 Using commandCheck As New SqlCommand(queryCheck, conn)
+                    commandCheck.Parameters.AddWithValue("@ValStudentEmail", ValStudentEmail)
+                    Dim existingEmail As Integer = Convert.ToInt32(commandCheck.ExecuteScalar())
+
+                    If existingEmail > 0 Then
+                        MessageBox.Show("El correo ya esta en uso. Introduzca un correo distinto.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+                        Return
+                    End If
+                End Using
+
+                ' Verificando si el correo ya existe en la tabla de coordinadores
+                Dim queryCheckCoordinator As String = "SELECT COUNT(*) FROM Usuario_Coordinador WHERE EmailCoordinador = @ValStudentEmail"
+                Using commandCheck As New SqlCommand(queryCheckCoordinator, conn)
+                    commandCheck.Parameters.AddWithValue("@ValStudentEmail", ValStudentEmail)
+                    Dim existingEmail As Integer = Convert.ToInt32(commandCheck.ExecuteScalar())
+
+                    If existingEmail > 0 Then
+                        MessageBox.Show("El correo ya esta en uso. Introduzca un correo distinto.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+                        Return
+                    End If
+                End Using
+
+                ' Verificando si el correo ya existe en la tabla de empresas
+                Dim queryCheckCompany As String = "SELECT COUNT(*) FROM Usuario_Empresa WHERE EmailEmpresa = @ValStudentEmail"
+                Using commandCheck As New SqlCommand(queryCheckCompany, conn)
                     commandCheck.Parameters.AddWithValue("@ValStudentEmail", ValStudentEmail)
                     Dim existingEmail As Integer = Convert.ToInt32(commandCheck.ExecuteScalar())
 
@@ -305,9 +331,33 @@ Public Class Login
                 ' Abriendo la conexion
                 conn.Open()
 
-                ' Verificando si el correo ya existe
+                ' Verificando si el correo ya existe en la tabla de empresas
                 Dim queryCheck As String = "SELECT COUNT(*) FROM Usuario_Empresa WHERE EmailEmpresa = @ValCompanyEmail"
                 Using commandCheck As New SqlCommand(queryCheck, conn)
+                    commandCheck.Parameters.AddWithValue("@ValCompanyEmail", ValCompanyEmail)
+                    Dim existingEmail As Integer = Convert.ToInt32(commandCheck.ExecuteScalar())
+
+                    If existingEmail > 0 Then
+                        MessageBox.Show("El correo ya esta en uso. Introduzca un correo distinto.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+                        Return
+                    End If
+                End Using
+
+                ' Verificando si el correo ya existe en la tabla de estudiantes
+                Dim queryCheckStudent As String = "SELECT COUNT(*) FROM Usuario_Estudiante WHERE EmailEstudiante = @ValCompanyEmail"
+                Using commandCheck As New SqlCommand(queryCheckStudent, conn)
+                    commandCheck.Parameters.AddWithValue("@ValCompanyEmail", ValCompanyEmail)
+                    Dim existingEmail As Integer = Convert.ToInt32(commandCheck.ExecuteScalar())
+
+                    If existingEmail > 0 Then
+                        MessageBox.Show("El correo ya esta en uso. Introduzca un correo distinto.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+                        Return
+                    End If
+                End Using
+
+                ' Verificando si el correo ya existe en la tabla de coordinadores
+                Dim queryCheckCoordinator As String = "SELECT COUNT(*) FROM Usuario_Coordinador WHERE EmailCoordinador = @ValCompanyEmail"
+                Using commandCheck As New SqlCommand(queryCheckCoordinator, conn)
                     commandCheck.Parameters.AddWithValue("@ValCompanyEmail", ValCompanyEmail)
                     Dim existingEmail As Integer = Convert.ToInt32(commandCheck.ExecuteScalar())
 
@@ -363,7 +413,7 @@ Public Class Login
         Dim IDFacultad As Integer
 
         ' Facultad del coordinador
-        Select Case FacultyStudent.SelectedItem.ToString
+        Select Case FacultyCoordinator.SelectedItem.ToString
             Case "Ingenieria en Sistemas Computacionales"
                 IDFacultad = 1
             Case "Ingenieria Mecanica"
@@ -377,9 +427,33 @@ Public Class Login
                 ' Abriendo la conexion 
                 conn.Open()
 
-                ' Verificando si el correo ya existe
-                Dim queryCheck As String = "SELECT COUNT(*) FROM Usuario_Coordinador WHERE EmailCoordinador = @ValCoordinatorEmail"
-                Using commandCheck As New SqlCommand(queryCheck, conn)
+                ' Verificando si el correo ya existe en la tabla de coordinadores
+                Dim queryCheckCoordinator As String = "SELECT COUNT(*) FROM Usuario_Coordinador WHERE EmailCoordinador = @ValCoordinatorEmail"
+                Using commandCheck As New SqlCommand(queryCheckCoordinator, conn)
+                    commandCheck.Parameters.AddWithValue("@ValCoordinatorEmail", ValCoordinatorEmail)
+                    Dim existingEmail As Integer = Convert.ToInt32(commandCheck.ExecuteScalar())
+
+                    If existingEmail > 0 Then
+                        MessageBox.Show("El correo ya esta en uso. Introduzca un correo distinto.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+                        Return
+                    End If
+                End Using
+
+                ' Verificando si el correo ya existe en la tabla de estudiantes
+                Dim queryCheckStudents As String = "SELECT COUNT(*) FROM Usuario_Estudiante WHERE EmailEstudiante = @ValCoordinatorEmail"
+                Using commandCheck As New SqlCommand(queryCheckStudents, conn)
+                    commandCheck.Parameters.AddWithValue("@ValCoordinatorEmail", ValCoordinatorEmail)
+                    Dim existingEmail As Integer = Convert.ToInt32(commandCheck.ExecuteScalar())
+
+                    If existingEmail > 0 Then
+                        MessageBox.Show("El correo ya esta en uso. Introduzca un correo distinto.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+                        Return
+                    End If
+                End Using
+
+                ' Verificando si el correo ya existe en la tabla de empresas
+                Dim queryCheckCompany As String = "SELECT COUNT(*) FROM Usuario_Empresa WHERE EmailEmpresa = @ValCoordinatorEmail"
+                Using commandCheck As New SqlCommand(queryCheckCompany, conn)
                     commandCheck.Parameters.AddWithValue("@ValCoordinatorEmail", ValCoordinatorEmail)
                     Dim existingEmail As Integer = Convert.ToInt32(commandCheck.ExecuteScalar())
 

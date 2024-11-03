@@ -655,7 +655,7 @@ Partial Class Login
         Me.Label3.AutoSize = True
         Me.Label3.Font = New System.Drawing.Font("Arial Rounded MT Bold", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label3.ForeColor = System.Drawing.SystemColors.ControlDarkDark
-        Me.Label3.Location = New System.Drawing.Point(95, 100)
+        Me.Label3.Location = New System.Drawing.Point(91, 100)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(171, 15)
         Me.Label3.TabIndex = 2
@@ -689,7 +689,7 @@ Partial Class Login
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.Gainsboro
-        Me.ClientSize = New System.Drawing.Size(1041, 683)
+        Me.ClientSize = New System.Drawing.Size(1029, 683)
         Me.Controls.Add(Me.SignIn)
         Me.Controls.Add(Me.Register)
         Me.Name = "Login"
