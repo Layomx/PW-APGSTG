@@ -1,6 +1,7 @@
 ﻿Imports System.Collections.Specialized
 Imports System.Configuration
 Imports System.Data.SqlClient
+Imports System.Web
 
 Public Class Login
     ' Funciones
@@ -500,5 +501,86 @@ Public Class Login
             MessageBox.Show("Por favor, seleccione una facultad.", "Validacion", MessageBoxButtons.OK, MessageBoxIcon.Warning)
             FacultyCoordinator.Focus()
         End If
+    End Sub
+
+    Private Sub BtnSignIn_Click(sender As Object, e As EventArgs) Handles BtnSignIn.Click
+        ' Conectando la base de datos
+        Dim connString = ConfigurationManager.ConnectionStrings("PW_APGSTG.My.MySettings.PW_APGSTGConnectionString").ConnectionString
+
+        ' Datos introducidos del usuario que desea ingresar
+        Dim ValUserEmail As String = EmailSign.Text
+        Dim ValUserPassword As String = PasswordSign.Text
+
+        Using conn As New SqlConnection(connString)
+            Try
+                conn.Open()
+
+                ' Variables para almacenar el tipo de cuenta
+                Dim isStudent As Boolean = False
+                Dim isCompany As Boolean = False
+                Dim isCoordinator As Boolean = False
+                Dim validEmail As Boolean = False
+
+                ' Verificando la existencia de los correos en la base de datos
+                Dim checkStudents As String = "SELECT COUNT(*) FROM Usuario_Estudiante WHERE EmailEstudiante = @ValUserEmail"
+                Using commandCheckStudent As New SqlCommand(checkStudents, conn)
+                    commandCheckStudent.Parameters.AddWithValue("@ValUserEmail", ValUserEmail)
+                    validEmail = Convert.ToInt32(commandCheckStudent.ExecuteScalar()) > 0
+                End Using
+
+                Dim checkCompany As String = "SELECT COUNT(*) FROM Usuario_Empresa WHERE EmailEmpresa = @ValUserEmail"
+                Using commandCheckCompany As New SqlCommand(checkStudents, conn)
+                    commandCheckCompany.Parameters.AddWithValue("@ValUserEmail", ValUserEmail)
+                    validEmail = Convert.ToInt32(commandCheckCompany.ExecuteScalar()) > 0
+                End Using
+
+                Dim checkCoordinator As String = "SELECT COUNT(*) FROM Usuario_Coordinador WHERE EmailCoordinador = @ValUserEmail"
+                Using commandCheckCoordinator As New SqlCommand(checkCoordinator, conn)
+                    commandCheckCoordinator.Parameters.AddWithValue("@ValUserEmail", ValUserEmail)
+                    validEmail = Convert.ToInt32(commandCheckCoordinator.ExecuteScalar()) > 0
+                End Using
+
+                ' Si el correo no existe se detiene la ejecucion
+                If Not validEmail Then
+                    MessageBox.Show("El correo no existe.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+                    Return
+                End If
+
+                ' Verificando la tabla de Estudiantes
+                Dim queryStudents As String = "SELECT COUNT(*) FROM Usuario_Estudiante WHERE EmailEstudiante = @ValUserEmail AND Contraseña_Est = @ValUserPassword"
+                Using commandStudent As New SqlCommand(queryStudents, conn)
+                    commandStudent.Parameters.AddWithValue("@ValUserEmail", ValUserEmail)
+                    commandStudent.Parameters.AddWithValue("@ValUserPassword", ValUserPassword)
+                    isStudent = Convert.ToInt32(commandStudent.ExecuteScalar()) > 0
+                End Using
+
+                ' Verificando la tabla de Empresas
+                Dim queryCompany As String = "SELECT COUNT(*) FROM Usuario_Empresa WHERE EmailEmpresa = @ValUserEmail AND Contraseña_Emp = @ValUserPassword"
+                Using commandCompany As New SqlCommand(queryCompany, conn)
+                    commandCompany.Parameters.AddWithValue("@ValUserEmail", ValUserEmail)
+                    commandCompany.Parameters.AddWithValue("@ValUserPassword", ValUserPassword)
+                    isCompany = Convert.ToInt32(commandCompany.ExecuteScalar()) > 0
+                End Using
+
+                ' Redirigir segun el tipo de cuenta
+                If isStudent Then
+                    MessageBox.Show("Inicio de sesion exitoso como Estudiante.", "Inicio exitoso", MessageBoxButtons.OK, MessageBoxIcon.None)
+                    Me.Hide()
+                ElseIf isCompany Then
+                    MessageBox.Show("Inicio de sesion exitoso como Empresa.", "Inicio exitoso", MessageBoxButtons.OK, MessageBoxIcon.None)
+                    Me.Hide()
+                ElseIf isCoordinator Then
+                    MessageBox.Show("Inicio de sesion exitoso como Coordinador.", "Inicio exitoso", MessageBoxButtons.OK, MessageBoxIcon.None)
+                    Me.Hide()
+                Else
+                    MessageBox.Show("Correo electronico o contraseña incorrectos.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+                End If
+            Catch ex As Exception
+                MessageBox.Show("Error al ingresar a la la cuenta: " & ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            Finally
+                conn.Close()
+            End Try
+        End Using
+
     End Sub
 End Class
