@@ -4,6 +4,9 @@ Imports System.Data.SqlClient
 Imports System.Web
 
 Public Class Login
+    ' Variables de clase publica
+    Public Property UserEmail As String
+
     ' Funciones
     ' Funcion para validar correos electronicos
     Private Function IsValidEmail(ByVal Email As String) As Boolean
@@ -48,6 +51,7 @@ Public Class Login
         CompanyPassword.UseSystemPasswordChar = True
         CoordinatorPassword.UseSystemPasswordChar = True
 
+        Me.ActiveControl = Nothing
     End Sub
 
     ' Mostrando u ocultando contraseñas de los usuarios
@@ -93,20 +97,27 @@ Public Class Login
 
     ' Mostrando los groupbox dependiendo del tipo de cuenta seleccionada
     Private Sub AccountType_SelectedIndexChanged(sender As Object, e As EventArgs) Handles AccountType.SelectedIndexChanged
-        Select Case AccountType.SelectedItem.ToString()
-            Case "Estudiante"
-                GBEmpresa.Hide()
-                GBCoordinator.Hide()
-                GBEstudiante.Show()
-            Case "Coordinador"
-                GBEmpresa.Hide()
-                GBEstudiante.Hide()
-                GBCoordinator.Show()
-            Case "Empresa"
-                GBEstudiante.Hide()
-                GBCoordinator.Hide()
-                GBEmpresa.Show()
-        End Select
+        If AccountType.SelectedItem IsNot Nothing Then
+            Select Case AccountType.SelectedItem.ToString()
+                Case "Estudiante"
+                    GBEmpresa.Hide()
+                    GBCoordinator.Hide()
+                    GBEstudiante.Show()
+                Case "Coordinador"
+                    GBEmpresa.Hide()
+                    GBEstudiante.Hide()
+                    GBCoordinator.Show()
+                Case "Empresa"
+                    GBEstudiante.Hide()
+                    GBCoordinator.Hide()
+                    GBEmpresa.Show()
+            End Select
+        Else
+            AccountType.Text = "Tipo de cuenta"
+            GBEstudiante.Hide()
+            GBCoordinator.Hide()
+            GBEmpresa.Hide()
+        End If
     End Sub
 
     ' Permitiendo solo letras, espacios y teclas de control en los nombres de los usuarios 
@@ -170,6 +181,14 @@ Public Class Login
         End If
     End Sub
 
+    Private Sub EmailSign_TextChanged(sender As Object, e As EventArgs) Handles EmailSign.TextChanged
+        If IsValidEmail(EmailSign.Text) Then
+            EmailSign.BackColor = Color.White
+        Else
+            EmailSign.BackColor = Color.LightPink
+        End If
+    End Sub
+
     ' Validando el numero telefonico del coordinador
     Private Sub CoordinatorTelephoneNumber_KeyPress(sender As Object, e As KeyPressEventArgs) Handles CoordinatorTelephoneNumber.KeyPress
         ' Aceptando unicamente numeros como guiones y espacios
@@ -205,7 +224,7 @@ Public Class Login
     Private Sub CompanyEmail_Leave(sender As Object, e As EventArgs) Handles CompanyEmail.Leave
         If Not String.IsNullOrWhiteSpace(CompanyEmail.Text) AndAlso Not IsValidEmail(CompanyEmail.Text) Then
             MessageBox.Show("Por favor ingrese un correo electronico valido", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning)
-            CoordinatorEmail.Focus()
+            CompanyEmail.Focus()
         End If
     End Sub
 
@@ -522,23 +541,31 @@ Public Class Login
                 Dim validEmail As Boolean = False
 
                 ' Verificando la existencia de los correos en la base de datos
-                Dim checkStudents As String = "SELECT COUNT(*) FROM Usuario_Estudiante WHERE EmailEstudiante = @ValUserEmail"
-                Using commandCheckStudent As New SqlCommand(checkStudents, conn)
-                    commandCheckStudent.Parameters.AddWithValue("@ValUserEmail", ValUserEmail)
-                    validEmail = Convert.ToInt32(commandCheckStudent.ExecuteScalar()) > 0
-                End Using
+                If validEmail = False Then
+                    Dim checkStudents As String = "SELECT COUNT(*) FROM Usuario_Estudiante WHERE EmailEstudiante = @ValUserEmail"
+                    Using commandCheckStudent As New SqlCommand(checkStudents, conn)
+                        commandCheckStudent.Parameters.AddWithValue("@ValUserEmail", ValUserEmail)
+                        validEmail = Convert.ToInt32(commandCheckStudent.ExecuteScalar()) > 0
+                    End Using
 
-                Dim checkCompany As String = "SELECT COUNT(*) FROM Usuario_Empresa WHERE EmailEmpresa = @ValUserEmail"
-                Using commandCheckCompany As New SqlCommand(checkStudents, conn)
-                    commandCheckCompany.Parameters.AddWithValue("@ValUserEmail", ValUserEmail)
-                    validEmail = Convert.ToInt32(commandCheckCompany.ExecuteScalar()) > 0
-                End Using
+                End If
 
-                Dim checkCoordinator As String = "SELECT COUNT(*) FROM Usuario_Coordinador WHERE EmailCoordinador = @ValUserEmail"
-                Using commandCheckCoordinator As New SqlCommand(checkCoordinator, conn)
-                    commandCheckCoordinator.Parameters.AddWithValue("@ValUserEmail", ValUserEmail)
-                    validEmail = Convert.ToInt32(commandCheckCoordinator.ExecuteScalar()) > 0
-                End Using
+                If validEmail = False Then
+                    Dim checkCompany As String = "SELECT COUNT(*) FROM Usuario_Empresa WHERE EmailEmpresa = @ValUserEmail"
+                    Using commandCheckCompany As New SqlCommand(checkCompany, conn)
+                        commandCheckCompany.Parameters.AddWithValue("@ValUserEmail", ValUserEmail)
+                        validEmail = Convert.ToInt32(commandCheckCompany.ExecuteScalar()) > 0
+                    End Using
+
+                End If
+
+                If validEmail = False Then
+                    Dim checkCoordinator As String = "SELECT COUNT(*) FROM Usuario_Coordinador WHERE EmailCoordinador = @ValUserEmail"
+                    Using commandCheckCoordinator As New SqlCommand(checkCoordinator, conn)
+                        commandCheckCoordinator.Parameters.AddWithValue("@ValUserEmail", ValUserEmail)
+                        validEmail = Convert.ToInt32(commandCheckCoordinator.ExecuteScalar()) > 0
+                    End Using
+                End If
 
                 ' Si el correo no existe se detiene la ejecucion
                 If Not validEmail Then
@@ -565,13 +592,17 @@ Public Class Login
                 ' Redirigir segun el tipo de cuenta
                 If isStudent Then
                     MessageBox.Show("Inicio de sesion exitoso como Estudiante.", "Inicio exitoso", MessageBoxButtons.OK, MessageBoxIcon.None)
+                    UserEmail = EmailSign.Text
                     Me.Hide()
                 ElseIf isCompany Then
                     MessageBox.Show("Inicio de sesion exitoso como Empresa.", "Inicio exitoso", MessageBoxButtons.OK, MessageBoxIcon.None)
                     Me.Hide()
+                    UserEmail = EmailSign.Text
+                    CompanyForms.Show()
                 ElseIf isCoordinator Then
                     MessageBox.Show("Inicio de sesion exitoso como Coordinador.", "Inicio exitoso", MessageBoxButtons.OK, MessageBoxIcon.None)
                     Me.Hide()
+                    UserEmail = EmailSign.Text
                 Else
                     MessageBox.Show("Correo electronico o contraseña incorrectos.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning)
                 End If
@@ -582,5 +613,9 @@ Public Class Login
             End Try
         End Using
 
+    End Sub
+
+    Private Sub AccountType_KeyPress(sender As Object, e As KeyPressEventArgs) Handles AccountType.KeyPress
+        e.Handled = True
     End Sub
 End Class

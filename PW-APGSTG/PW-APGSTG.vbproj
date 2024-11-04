@@ -74,6 +74,18 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CompanyForm.Designer.vb">
+      <DependentUpon>CompanyForm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="CompanyForm.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CompanyForms.Designer.vb">
+      <DependentUpon>CompanyForms.vb</DependentUpon>
+    </Compile>
+    <Compile Include="CompanyForms.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Login.vb">
       <SubType>Form</SubType>
     </Compile>
@@ -103,6 +115,12 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="CompanyForm.resx">
+      <DependentUpon>CompanyForm.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CompanyForms.resx">
+      <DependentUpon>CompanyForms.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.vb</DependentUpon>
     </EmbeddedResource>
@@ -147,6 +165,15 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\ContraseñaOculta.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\foto_ranking_2121.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\26_logo_utp_-_cmyk_justificado_texto_negro.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\15735339.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>
