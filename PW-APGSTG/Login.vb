@@ -181,14 +181,6 @@ Public Class Login
         End If
     End Sub
 
-    Private Sub EmailSign_TextChanged(sender As Object, e As EventArgs) Handles EmailSign.TextChanged
-        If IsValidEmail(EmailSign.Text) Then
-            EmailSign.BackColor = Color.White
-        Else
-            EmailSign.BackColor = Color.LightPink
-        End If
-    End Sub
-
     ' Validando el numero telefonico del coordinador
     Private Sub CoordinatorTelephoneNumber_KeyPress(sender As Object, e As KeyPressEventArgs) Handles CoordinatorTelephoneNumber.KeyPress
         ' Aceptando unicamente numeros como guiones y espacios

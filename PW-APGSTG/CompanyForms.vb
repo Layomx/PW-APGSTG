@@ -23,7 +23,20 @@ Public Class CompanyForms
         Next
     End Sub
 
+    ' Funcion para desactivar la navegacion por tabulador
+    Private Sub DisableTabStop(ByVal controls As Control.ControlCollection)
+        For Each ctrl As Control In controls
+            ctrl.TabStop = False
+            ' Desactivando subcontroles llamando la funcion de forma recursiva
+            If ctrl.HasChildren Then
+                DisableTabStop(ctrl.Controls)
+            End If
+        Next
+    End Sub
+
     Private Sub CompanyForms_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        DisableTabStop(Me.Controls)
+
         ' Conectando la base de datos
         Dim connString = ConfigurationManager.ConnectionStrings("PW_APGSTG.My.MySettings.PW_APGSTGConnectionString").ConnectionString
         Using conn As New SqlConnection(connString)
@@ -33,6 +46,7 @@ Public Class CompanyForms
                 ' Variables con la informacion de la empresa que ingreso
                 Dim ValCompanyEmail As String = Login.UserEmail
 
+                ' Con este los labels cambiaran con la informacion de las empresas
                 Dim query As String = "SELECT NombreEmpresa, Direccion, Telefono FROM Usuario_Empresa WHERE EmailEmpresa = @ValCompanyEmail"
                 Using nameCommand As New SqlCommand(query, conn)
                     nameCommand.Parameters.AddWithValue("@ValCompanyEmail", ValCompanyEmail)
@@ -45,6 +59,7 @@ Public Class CompanyForms
                             GBCompanyInfoN1.Controls("LBLCompanyName").Text = $"{CompanyName}"
                             GBCompanyInfoN1.Controls("LBLCompanyAddress").Text = $"{CompanyAddress}"
                             GBCompanyInfoN1.Controls("LBLCompanyTelephone").Text = $"{CompanyTelephone}"
+                            GBCompanyInfoN2.Controls("LBLWelcome").Text = $"Bienvenido {CompanyName} al Sitio de Empresas"
                         Else
                             MessageBox.Show("Usuario no encontrado", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning)
                         End If
@@ -68,5 +83,14 @@ Public Class CompanyForms
             ClearControls(Login)
             Login.Show()
         End If
+    End Sub
+
+    ' Formulario de solicitud de estudiantes
+    Private Sub RequestStudents_Click(sender As Object, e As EventArgs) Handles RequestStudents.Click
+        RequestForm.Show()
+    End Sub
+
+    Private Sub Offers_Click(sender As Object, e As EventArgs) Handles Offers.Click
+
     End Sub
 End Class

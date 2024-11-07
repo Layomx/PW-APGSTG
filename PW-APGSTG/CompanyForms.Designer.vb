@@ -29,17 +29,22 @@ Partial Class CompanyForms
         Me.Label1 = New System.Windows.Forms.Label()
         Me.LBLCompanyTelephone = New System.Windows.Forms.Label()
         Me.LBLCompanyAddress = New System.Windows.Forms.Label()
-        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.LBLCompanyName = New System.Windows.Forms.Label()
         Me.GBCompanyInfoN2 = New System.Windows.Forms.GroupBox()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
+        Me.LBLWelcome = New System.Windows.Forms.Label()
+        Me.PictureBox2 = New System.Windows.Forms.PictureBox()
+        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.GBCompanyInfoN1.SuspendLayout()
+        Me.GBCompanyInfoN2.SuspendLayout()
+        Me.GroupBox2.SuspendLayout()
+        CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'GBCompanyInfoN1
         '
-        Me.GBCompanyInfoN1.BackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer))
+        Me.GBCompanyInfoN1.BackColor = System.Drawing.Color.Indigo
         Me.GBCompanyInfoN1.Controls.Add(Me.SignOut)
         Me.GBCompanyInfoN1.Controls.Add(Me.Offers)
         Me.GBCompanyInfoN1.Controls.Add(Me.RequestStudents)
@@ -120,16 +125,6 @@ Partial Class CompanyForms
         Me.LBLCompanyAddress.Text = "Label1"
         Me.LBLCompanyAddress.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
-        'PictureBox1
-        '
-        Me.PictureBox1.Image = Global.PW_APGSTG.My.Resources.Resources._15735339
-        Me.PictureBox1.Location = New System.Drawing.Point(95, 21)
-        Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(136, 144)
-        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.PictureBox1.TabIndex = 1
-        Me.PictureBox1.TabStop = False
-        '
         'LBLCompanyName
         '
         Me.LBLCompanyName.AutoSize = True
@@ -145,6 +140,7 @@ Partial Class CompanyForms
         'GBCompanyInfoN2
         '
         Me.GBCompanyInfoN2.BackColor = System.Drawing.Color.WhiteSmoke
+        Me.GBCompanyInfoN2.Controls.Add(Me.LBLWelcome)
         Me.GBCompanyInfoN2.Font = New System.Drawing.Font("Arial Narrow", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.GBCompanyInfoN2.Location = New System.Drawing.Point(342, 12)
         Me.GBCompanyInfoN2.Name = "GBCompanyInfoN2"
@@ -155,11 +151,41 @@ Partial Class CompanyForms
         'GroupBox2
         '
         Me.GroupBox2.BackColor = System.Drawing.Color.WhiteSmoke
+        Me.GroupBox2.Controls.Add(Me.PictureBox2)
         Me.GroupBox2.Location = New System.Drawing.Point(342, 118)
         Me.GroupBox2.Name = "GroupBox2"
         Me.GroupBox2.Size = New System.Drawing.Size(626, 447)
         Me.GroupBox2.TabIndex = 2
         Me.GroupBox2.TabStop = False
+        '
+        'LBLWelcome
+        '
+        Me.LBLWelcome.AutoSize = True
+        Me.LBLWelcome.Location = New System.Drawing.Point(23, 40)
+        Me.LBLWelcome.Name = "LBLWelcome"
+        Me.LBLWelcome.Size = New System.Drawing.Size(66, 27)
+        Me.LBLWelcome.TabIndex = 0
+        Me.LBLWelcome.Text = "Label2"
+        '
+        'PictureBox2
+        '
+        Me.PictureBox2.Image = Global.PW_APGSTG.My.Resources.Resources.campus1
+        Me.PictureBox2.Location = New System.Drawing.Point(0, 0)
+        Me.PictureBox2.Name = "PictureBox2"
+        Me.PictureBox2.Size = New System.Drawing.Size(626, 447)
+        Me.PictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.PictureBox2.TabIndex = 0
+        Me.PictureBox2.TabStop = False
+        '
+        'PictureBox1
+        '
+        Me.PictureBox1.Image = Global.PW_APGSTG.My.Resources.Resources._15735339
+        Me.PictureBox1.Location = New System.Drawing.Point(95, 21)
+        Me.PictureBox1.Name = "PictureBox1"
+        Me.PictureBox1.Size = New System.Drawing.Size(136, 144)
+        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.PictureBox1.TabIndex = 1
+        Me.PictureBox1.TabStop = False
         '
         'CompanyForms
         '
@@ -174,6 +200,10 @@ Partial Class CompanyForms
         Me.Text = "Empresa"
         Me.GBCompanyInfoN1.ResumeLayout(False)
         Me.GBCompanyInfoN1.PerformLayout()
+        Me.GBCompanyInfoN2.ResumeLayout(False)
+        Me.GBCompanyInfoN2.PerformLayout()
+        Me.GroupBox2.ResumeLayout(False)
+        CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
@@ -190,4 +220,6 @@ Partial Class CompanyForms
     Friend WithEvents SignOut As Button
     Friend WithEvents Offers As Button
     Friend WithEvents RequestStudents As Button
+    Friend WithEvents LBLWelcome As Label
+    Friend WithEvents PictureBox2 As PictureBox
 End Class
