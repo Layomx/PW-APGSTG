@@ -91,6 +91,6 @@ Public Class CompanyForms
     End Sub
 
     Private Sub Offers_Click(sender As Object, e As EventArgs) Handles Offers.Click
-
+        CompanyOffers.Show()
     End Sub
 End Class

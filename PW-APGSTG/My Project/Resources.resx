@@ -118,28 +118,82 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="ContraseñaOculta" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\ContraseñaOculta.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="UsuarioRegistro" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\UsuarioRegistro.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Utp" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Utp1.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="UsuarioInicio" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\UsuarioInicio.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="foto_ranking_2121" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\foto_ranking_2121.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Coordinador" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Coordinador1.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="UsuarioRegistro" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\UsuarioRegistro.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="aprobacion" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\aprobacion1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="15735339" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\15735339.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="ContraseñaOculta" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ContraseñaOculta.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="26_logo_utp_-_cmyk_justificado_texto_negro" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\26_logo_utp_-_cmyk_justificado_texto_negro.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="editar" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\editar1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="publicaciones1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\publicaciones11.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="Contraseña" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Contraseña.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="add_circle_create_expand_new_plus_icon_123218" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\add_circle_create_expand_new_plus_icon_1232181.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="estudiante" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\estudiante1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Ayuda" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Ayuda1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="DSC_0144" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\DSC_0144.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="15735339" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\15735339.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="solicitud" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\solicitud1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="postular" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\postular2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="campus1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\campus1.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="publicaciones" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\publicaciones2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="borde1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\borde11.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="borde" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\borde2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="foto_ranking_2121" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\foto_ranking_2121.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="practicas" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\practicas1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="mensaje" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\mensaje1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="postular1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\postular11.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Coordinador1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Coordinador.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

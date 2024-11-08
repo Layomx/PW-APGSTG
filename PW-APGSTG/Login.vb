@@ -581,6 +581,14 @@ Public Class Login
                     isCompany = Convert.ToInt32(commandCompany.ExecuteScalar()) > 0
                 End Using
 
+                ' Verificando la tabla de Coordinadores
+                Dim queryCoordinator As String = "SELECT COUNT(*) FROM Usuario_Coordinador WHERE EmailCoordinador = @ValUserEmail AND Contraseña_C = @ValUserPassword"
+                Using commandCoordinator As New SqlCommand(queryCoordinator, conn)
+                    commandCoordinator.Parameters.AddWithValue("@ValUserEmail", ValUserEmail)
+                    commandCoordinator.Parameters.AddWithValue("@ValUserPassword", ValUserPassword)
+                    isCoordinator = Convert.ToInt32(commandCoordinator.ExecuteScalar() > 0)
+                End Using
+
                 ' Redirigir segun el tipo de cuenta
                 If isStudent Then
                     MessageBox.Show("Inicio de sesion exitoso como Estudiante.", "Inicio exitoso", MessageBoxButtons.OK, MessageBoxIcon.None)
@@ -595,6 +603,7 @@ Public Class Login
                     MessageBox.Show("Inicio de sesion exitoso como Coordinador.", "Inicio exitoso", MessageBoxButtons.OK, MessageBoxIcon.None)
                     Me.Hide()
                     UserEmail = EmailSign.Text
+                    CoordinatorForms.Show()
                 Else
                     MessageBox.Show("Correo electronico o contraseña incorrectos.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning)
                 End If
@@ -609,5 +618,9 @@ Public Class Login
 
     Private Sub AccountType_KeyPress(sender As Object, e As KeyPressEventArgs) Handles AccountType.KeyPress
         e.Handled = True
+    End Sub
+
+    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+        End
     End Sub
 End Class

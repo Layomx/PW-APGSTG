@@ -48,6 +48,9 @@
     <OptionInfer>On</OptionInfer>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="My Project.Resources.Designer.vb">
+      <HintPath>..\..\Formularios\1234\1234\obj\Debug\TempPE\My Project.Resources.Designer.vb.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Data" />
@@ -59,6 +62,9 @@
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Net.Http" />
+    <Reference Include="_PW_APGSTGDataSet.Designer.vb">
+      <HintPath>..\..\Formularios\1234\1234\obj\Debug\TempPE\_PW_APGSTGDataSet.Designer.vb.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Import Include="Microsoft.VisualBasic" />
@@ -74,16 +80,28 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CompanyForm.Designer.vb">
-      <DependentUpon>CompanyForm.vb</DependentUpon>
-    </Compile>
-    <Compile Include="CompanyForm.vb">
-      <SubType>UserControl</SubType>
-    </Compile>
     <Compile Include="CompanyForms.Designer.vb">
       <DependentUpon>CompanyForms.vb</DependentUpon>
     </Compile>
     <Compile Include="CompanyForms.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CompanyOffers.Designer.vb">
+      <DependentUpon>CompanyOffers.vb</DependentUpon>
+    </Compile>
+    <Compile Include="CompanyOffers.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CoordinatorForms.Designer.vb">
+      <DependentUpon>CoordinatorForms.vb</DependentUpon>
+    </Compile>
+    <Compile Include="CoordinatorForms.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CoordinatorRequestOffers.Designer.vb">
+      <DependentUpon>CoordinatorRequestOffers.vb</DependentUpon>
+    </Compile>
+    <Compile Include="CoordinatorRequestOffers.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Login.vb">
@@ -97,6 +115,10 @@
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
       <DependentUpon>Application.myapp</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Publicaciones.Designer.vb" />
+    <Compile Include="My Project\Publicaciones.vb">
+      <SubType>Form</SubType>
     </Compile>
     <Compile Include="My Project\Resources.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -121,15 +143,22 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="CompanyForm.resx">
-      <DependentUpon>CompanyForm.vb</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="CompanyForms.resx">
       <DependentUpon>CompanyForms.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CompanyOffers.resx">
+      <DependentUpon>CompanyOffers.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CoordinatorForms.resx">
+      <DependentUpon>CoordinatorForms.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CoordinatorRequestOffers.resx">
+      <DependentUpon>CoordinatorRequestOffers.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="My Project\Publicaciones.resx" />
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.vb</LastGenOutput>
@@ -186,6 +215,60 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\campus1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\add_circle_create_expand_new_plus_icon_1232181.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\aprobacion1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Ayuda1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\borde2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\borde11.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Coordinador1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\editar1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\estudiante1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\mensaje1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\postular2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\postular11.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\practicas1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\publicaciones2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\publicaciones11.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\solicitud1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Utp1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\DSC_0144.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Coordinador.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>
