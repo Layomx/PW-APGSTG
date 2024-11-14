@@ -23,16 +23,15 @@ Partial Class CoordinatorForms
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.MenuStrip = New System.Windows.Forms.MenuStrip()
+        Me.MenuDePracticasProfesionalesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.SolicitudesDePracticasProfesionalesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.AprobacionesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.CerrarSesionToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.LBLCoordinatorName = New System.Windows.Forms.Label()
         Me.LBLCoordinatorFaculty = New System.Windows.Forms.Label()
         Me.LBLCoordinatorEmail = New System.Windows.Forms.Label()
         Me.PictureBox2 = New System.Windows.Forms.PictureBox()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
-        Me.MenuDePracticasProfesionalesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.SolicitudesDePracticasProfesionalesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.PublicacionesDePracticasProfesionalesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.AprobacionesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.CerrarSesionToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MenuStrip.SuspendLayout()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -47,6 +46,43 @@ Partial Class CoordinatorForms
         Me.MenuStrip.Name = "MenuStrip"
         Me.MenuStrip.Size = New System.Drawing.Size(746, 35)
         Me.MenuStrip.TabIndex = 0
+        '
+        'MenuDePracticasProfesionalesToolStripMenuItem
+        '
+        Me.MenuDePracticasProfesionalesToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.SolicitudesDePracticasProfesionalesToolStripMenuItem, Me.AprobacionesToolStripMenuItem})
+        Me.MenuDePracticasProfesionalesToolStripMenuItem.Font = New System.Drawing.Font("Arial Narrow", 13.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.MenuDePracticasProfesionalesToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ButtonHighlight
+        Me.MenuDePracticasProfesionalesToolStripMenuItem.Image = Global.PW_APGSTG.My.Resources.Resources.practicas
+        Me.MenuDePracticasProfesionalesToolStripMenuItem.Name = "MenuDePracticasProfesionalesToolStripMenuItem"
+        Me.MenuDePracticasProfesionalesToolStripMenuItem.Size = New System.Drawing.Size(336, 31)
+        Me.MenuDePracticasProfesionalesToolStripMenuItem.Text = "Menu de practicas profesionales"
+        '
+        'SolicitudesDePracticasProfesionalesToolStripMenuItem
+        '
+        Me.SolicitudesDePracticasProfesionalesToolStripMenuItem.BackColor = System.Drawing.Color.DarkMagenta
+        Me.SolicitudesDePracticasProfesionalesToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ButtonHighlight
+        Me.SolicitudesDePracticasProfesionalesToolStripMenuItem.Image = Global.PW_APGSTG.My.Resources.Resources.solicitud
+        Me.SolicitudesDePracticasProfesionalesToolStripMenuItem.Name = "SolicitudesDePracticasProfesionalesToolStripMenuItem"
+        Me.SolicitudesDePracticasProfesionalesToolStripMenuItem.Size = New System.Drawing.Size(441, 32)
+        Me.SolicitudesDePracticasProfesionalesToolStripMenuItem.Text = "Solicitudes de Practicas Profesionales"
+        '
+        'AprobacionesToolStripMenuItem
+        '
+        Me.AprobacionesToolStripMenuItem.BackColor = System.Drawing.Color.DarkMagenta
+        Me.AprobacionesToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ButtonHighlight
+        Me.AprobacionesToolStripMenuItem.Image = Global.PW_APGSTG.My.Resources.Resources.aprobacion
+        Me.AprobacionesToolStripMenuItem.Name = "AprobacionesToolStripMenuItem"
+        Me.AprobacionesToolStripMenuItem.Size = New System.Drawing.Size(441, 32)
+        Me.AprobacionesToolStripMenuItem.Text = "Aprobaciones"
+        '
+        'CerrarSesionToolStripMenuItem
+        '
+        Me.CerrarSesionToolStripMenuItem.Font = New System.Drawing.Font("Arial Narrow", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.CerrarSesionToolStripMenuItem.ForeColor = System.Drawing.Color.White
+        Me.CerrarSesionToolStripMenuItem.Image = Global.PW_APGSTG.My.Resources.Resources.Ayuda
+        Me.CerrarSesionToolStripMenuItem.Name = "CerrarSesionToolStripMenuItem"
+        Me.CerrarSesionToolStripMenuItem.Size = New System.Drawing.Size(148, 31)
+        Me.CerrarSesionToolStripMenuItem.Text = "Cerrar sesion"
         '
         'LBLCoordinatorName
         '
@@ -98,52 +134,6 @@ Partial Class CoordinatorForms
         Me.PictureBox1.TabIndex = 1
         Me.PictureBox1.TabStop = False
         '
-        'MenuDePracticasProfesionalesToolStripMenuItem
-        '
-        Me.MenuDePracticasProfesionalesToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.SolicitudesDePracticasProfesionalesToolStripMenuItem, Me.PublicacionesDePracticasProfesionalesToolStripMenuItem, Me.AprobacionesToolStripMenuItem})
-        Me.MenuDePracticasProfesionalesToolStripMenuItem.Font = New System.Drawing.Font("Arial Narrow", 13.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.MenuDePracticasProfesionalesToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.MenuDePracticasProfesionalesToolStripMenuItem.Image = Global.PW_APGSTG.My.Resources.Resources.practicas
-        Me.MenuDePracticasProfesionalesToolStripMenuItem.Name = "MenuDePracticasProfesionalesToolStripMenuItem"
-        Me.MenuDePracticasProfesionalesToolStripMenuItem.Size = New System.Drawing.Size(336, 31)
-        Me.MenuDePracticasProfesionalesToolStripMenuItem.Text = "Menu de practicas profesionales"
-        '
-        'SolicitudesDePracticasProfesionalesToolStripMenuItem
-        '
-        Me.SolicitudesDePracticasProfesionalesToolStripMenuItem.BackColor = System.Drawing.Color.DarkMagenta
-        Me.SolicitudesDePracticasProfesionalesToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.SolicitudesDePracticasProfesionalesToolStripMenuItem.Image = Global.PW_APGSTG.My.Resources.Resources.solicitud
-        Me.SolicitudesDePracticasProfesionalesToolStripMenuItem.Name = "SolicitudesDePracticasProfesionalesToolStripMenuItem"
-        Me.SolicitudesDePracticasProfesionalesToolStripMenuItem.Size = New System.Drawing.Size(468, 32)
-        Me.SolicitudesDePracticasProfesionalesToolStripMenuItem.Text = "Solicitudes de Practicas Profesionales"
-        '
-        'PublicacionesDePracticasProfesionalesToolStripMenuItem
-        '
-        Me.PublicacionesDePracticasProfesionalesToolStripMenuItem.BackColor = System.Drawing.Color.DarkMagenta
-        Me.PublicacionesDePracticasProfesionalesToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.PublicacionesDePracticasProfesionalesToolStripMenuItem.Image = Global.PW_APGSTG.My.Resources.Resources.publicaciones1
-        Me.PublicacionesDePracticasProfesionalesToolStripMenuItem.Name = "PublicacionesDePracticasProfesionalesToolStripMenuItem"
-        Me.PublicacionesDePracticasProfesionalesToolStripMenuItem.Size = New System.Drawing.Size(468, 32)
-        Me.PublicacionesDePracticasProfesionalesToolStripMenuItem.Text = "Publicaciones de Practicas Profesionales"
-        '
-        'AprobacionesToolStripMenuItem
-        '
-        Me.AprobacionesToolStripMenuItem.BackColor = System.Drawing.Color.DarkMagenta
-        Me.AprobacionesToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.AprobacionesToolStripMenuItem.Image = Global.PW_APGSTG.My.Resources.Resources.aprobacion
-        Me.AprobacionesToolStripMenuItem.Name = "AprobacionesToolStripMenuItem"
-        Me.AprobacionesToolStripMenuItem.Size = New System.Drawing.Size(468, 32)
-        Me.AprobacionesToolStripMenuItem.Text = "Aprobaciones"
-        '
-        'CerrarSesionToolStripMenuItem
-        '
-        Me.CerrarSesionToolStripMenuItem.Font = New System.Drawing.Font("Arial Narrow", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.CerrarSesionToolStripMenuItem.ForeColor = System.Drawing.Color.White
-        Me.CerrarSesionToolStripMenuItem.Image = Global.PW_APGSTG.My.Resources.Resources.Ayuda
-        Me.CerrarSesionToolStripMenuItem.Name = "CerrarSesionToolStripMenuItem"
-        Me.CerrarSesionToolStripMenuItem.Size = New System.Drawing.Size(148, 31)
-        Me.CerrarSesionToolStripMenuItem.Text = "Cerrar sesion"
-        '
         'CoordinatorForms
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
@@ -172,7 +162,6 @@ Partial Class CoordinatorForms
     Friend WithEvents MenuStrip As MenuStrip
     Friend WithEvents MenuDePracticasProfesionalesToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents SolicitudesDePracticasProfesionalesToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents PublicacionesDePracticasProfesionalesToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents AprobacionesToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents PictureBox2 As PictureBox
     Friend WithEvents LBLCoordinatorName As Label

@@ -100,4 +100,8 @@ Public Class CoordinatorForms
     Private Sub SolicitudesDePracticasProfesionalesToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SolicitudesDePracticasProfesionalesToolStripMenuItem.Click
         CoordinatorRequestOffers.Show()
     End Sub
+
+    Private Sub AprobacionesToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles AprobacionesToolStripMenuItem.Click
+        CoordinadorAprovedOffers.Show()
+    End Sub
 End Class

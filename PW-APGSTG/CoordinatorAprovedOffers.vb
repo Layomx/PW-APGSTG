@@ -1,7 +1,7 @@
 ﻿Imports System.Configuration
 Imports System.Data.SqlClient
 
-Public Class CoordinatorRequestOffers
+Public Class CoordinadorAprovedOffers
     'Funciones
     ' Funcion para desactivar la navegacion por tabulador
     Private Sub DisableTabStop(ByVal controls As Control.ControlCollection)
@@ -53,7 +53,7 @@ Public Class CoordinatorRequestOffers
         Dim connString = ConfigurationManager.ConnectionStrings("PW_APGSTG.My.MySettings.PW_APGSTGConnectionString").ConnectionString
 
         ' Consulta SQL
-        Dim query As String = "SELECT COD_Oferta, Titulo, Descripcion, Requisitos, FechaEnvio, Estado, FechaInicio, FechaFin, ID_Facultad, ID_Empresa FROM OfertasEnviadas WHERE ID_Facultad = @IDFacultad"
+        Dim query As String = "SELECT COD_OfertaAprobada AS COD_Oferta, Titulo, Descripcion, Requisitos, FechaEnvio, Estado, FechaInicio, FechaFin, ID_Facultad, ID_Empresa FROM OfertasAprobadas WHERE ID_Facultad = @IDFacultad"
 
         ' Creando una tabla de datos 
         Dim dataTable As New DataTable()
@@ -70,25 +70,25 @@ Public Class CoordinatorRequestOffers
             End Using
         End Using
 
-        DGVAproved.DataSource = dataTable
-        DGVAproved.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells
-        DGVAproved.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells
+        DGVPub.DataSource = dataTable
+        DGVPub.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells
+        DGVPub.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells
 
-        DGVAproved.Columns("COD_Oferta").HeaderText = "ID de la oferta"
-        DGVAproved.Columns("Titulo").HeaderText = "Titulo"
-        DGVAproved.Columns("Descripcion").HeaderText = "Descripcion"
-        DGVAproved.Columns("Descripcion").DefaultCellStyle.WrapMode = DataGridViewTriState.True
-        DGVAproved.Columns("Requisitos").HeaderText = "Requisitos"
-        DGVAproved.Columns("Requisitos").DefaultCellStyle.WrapMode = DataGridViewTriState.True
-        DGVAproved.Columns("FechaEnvio").HeaderText = "Fecha de envio"
-        DGVAproved.Columns("Estado").HeaderText = "Estado de oferta"
-        DGVAproved.Columns("FechaInicio").HeaderText = "Inicio"
-        DGVAproved.Columns("FechaFin").HeaderText = "Fin"
-        DGVAproved.Columns("ID_Facultad").HeaderText = "Facultad"
-        DGVAproved.Columns("ID_Empresa").HeaderText = "Empresa"
+        DGVPub.Columns("COD_Oferta").HeaderText = "ID de la oferta"
+        DGVPub.Columns("Titulo").HeaderText = "Titulo"
+        DGVPub.Columns("Descripcion").HeaderText = "Descripcion"
+        DGVPub.Columns("Descripcion").DefaultCellStyle.WrapMode = DataGridViewTriState.True
+        DGVPub.Columns("Requisitos").HeaderText = "Requisitos"
+        DGVPub.Columns("Requisitos").DefaultCellStyle.WrapMode = DataGridViewTriState.True
+        DGVPub.Columns("FechaEnvio").HeaderText = "Fecha de envio"
+        DGVPub.Columns("Estado").HeaderText = "Estado de oferta"
+        DGVPub.Columns("FechaInicio").HeaderText = "Inicio"
+        DGVPub.Columns("FechaFin").HeaderText = "Fin"
+        DGVPub.Columns("ID_Facultad").HeaderText = "Facultad"
+        DGVPub.Columns("ID_Empresa").HeaderText = "Empresa"
     End Sub
 
-    Private Sub CoordinatorRequestOffers_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+    Private Sub CoordinadorAprovedOffers_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         DisableTabStop(Me.Controls)
 
         Dim ValCoordinatorEmail = Login.UserEmail
@@ -99,14 +99,14 @@ Public Class CoordinatorRequestOffers
         Me.ActiveControl = Nothing
     End Sub
 
-    Private Sub CloseBTN_Click(sender As Object, e As EventArgs) Handles CloseBTN.Click
+    Private Sub CloseBTN2_Click(sender As Object, e As EventArgs) Handles CloseBTN2.Click
         Me.Close()
     End Sub
 
-    Private Sub BTNAprove_Click(sender As Object, e As EventArgs) Handles BTNAprove.Click
-        If DGVAproved.SelectedRows.Count > 0 Then
+    Private Sub BTNPost_Click(sender As Object, e As EventArgs) Handles BTNPost.Click
+        If DGVPub.SelectedRows.Count > 0 Then
             ' Obteniendo la fila seleccionada
-            Dim selectedRow As DataGridViewRow = DGVAproved.SelectedRows(0)
+            Dim selectedRow As DataGridViewRow = DGVPub.SelectedRows(0)
             Dim CODOferta As Integer = Convert.ToInt32(selectedRow.Cells("COD_Oferta").Value)
             Dim offerDate As Date = Convert.ToDateTime(selectedRow.Cells(4).Value)
             Dim estado As String = "Publicada"
@@ -114,8 +114,8 @@ Public Class CoordinatorRequestOffers
             ' Cadena de conexion 
             Dim connString As String = ConfigurationManager.ConnectionStrings("PW_APGSTG.My.MySettings.PW_APGSTGConnectionString").ConnectionString
             Using conn As New SqlConnection(connString)
-                ' Elimina la fila de la base de datos de la tabla OfertasEnviadas
-                Dim queryDelete As String = "DELETE FROM OfertasEnviadas WHERE COD_Oferta = @COD_Oferta"
+                ' Elimina la fila de la base de datos de la tabla OfertasAprobadas
+                Dim queryDelete As String = "DELETE FROM OfertasAprobadas WHERE COD_OfertaAprobada = @COD_Oferta"
                 Dim cmdDelete As New SqlCommand(queryDelete, conn)
                 cmdDelete.Parameters.AddWithValue("@COD_Oferta", CODOferta)
 
@@ -123,8 +123,8 @@ Public Class CoordinatorRequestOffers
                 Dim affectedRows As Integer = cmdDelete.ExecuteNonQuery()
 
                 If affectedRows > 0 Then
-                    ' Insertando la nueva oferta en la base de datos en la tabla OfertasEnviadas
-                    Dim queryInsert As String = "INSERT INTO OfertasAprobadas (Titulo, Descripcion, Estado, FechaEnvio, Requisitos, FechaInicio, FechaFin, ID_Empresa, ID_Facultad)" & "VALUES(@Titulo, @Descripcion, @Estado, @FechaEnvio, @Requisitos, @FechaInicio, @FechaFin, @ID_Empresa, @ID_Facultad)"
+                    ' Insertando la nueva oferta en la base de datos en la tabla OfertasPublicadas
+                    Dim queryInsert As String = "INSERT INTO OfertasPublicadas (Titulo, Descripcion, Estado, FechaEnvio, Requisitos, FechaInicio, FechaFin, ID_Empresa, ID_Facultad)" & "VALUES(@Titulo, @Descripcion, @Estado, @FechaEnvio, @Requisitos, @FechaInicio, @FechaFin, @ID_Empresa, @ID_Facultad)"
                     Dim cmdInsert As New SqlCommand(queryInsert, conn)
 
                     cmdInsert.Parameters.AddWithValue("@Titulo", selectedRow.Cells("Titulo").Value)
@@ -170,9 +170,9 @@ Public Class CoordinatorRequestOffers
                     cmdInsert.ExecuteNonQuery()
 
                     ' Eliminando la fila del GDV de Solicitudes
-                    DGVAproved.Rows.Remove(selectedRow)
+                    DGVPub.Rows.Remove(selectedRow)
 
-                    MessageBox.Show("Oferta aceptada y movida a la lista de ofertas aceptadas.")
+                    MessageBox.Show("Oferta publicada y movida a la lista de ofertas publicadas.")
                 Else
                     MessageBox.Show("No se pudo eliminar la oferta de la base de datos.")
                 End If
@@ -184,24 +184,24 @@ Public Class CoordinatorRequestOffers
         End If
     End Sub
 
-    Private Sub BTNRefuse_Click(sender As Object, e As EventArgs) Handles BTNRefuse.Click
-        If DGVAproved.SelectedRows.Count > 0 Then
+    Private Sub BTNRefuse1_Click(sender As Object, e As EventArgs) Handles BTNRefuse1.Click
+        If DGVPub.SelectedRows.Count > 0 Then
             ' Obteniendo la fila seleccionada
-            Dim selectedRow As DataGridViewRow = DGVAproved.SelectedRows(0)
+            Dim selectedRow As DataGridViewRow = DGVPub.SelectedRows(0)
             Dim CODOferta As Integer = Convert.ToInt32(selectedRow.Cells("COD_Oferta").Value)
 
             ' Cadena de conexion 
             Dim connString As String = ConfigurationManager.ConnectionStrings("PW_APGSTG.My.MySettings.PW_APGSTGConnectionString").ConnectionString
             Using conn As New SqlConnection(connString)
                 ' Elimina la fila de la base de datos de la tabla OfertasEnviadas
-                Dim queryDelete As String = "DELETE FROM OfertasEnviadas WHERE COD_Oferta = @COD_Oferta"
+                Dim queryDelete As String = "DELETE FROM OfertasAprobadas WHERE COD_OfertaAprobada = @COD_Oferta"
                 Dim cmdDelete As New SqlCommand(queryDelete, conn)
                 cmdDelete.Parameters.AddWithValue("@COD_Oferta", CODOferta)
 
                 conn.Open()
                 Dim affectedRows As Integer = cmdDelete.ExecuteNonQuery()
                 ' Eliminando la fila del GDV de Solicitudes
-                DGVAproved.Rows.Remove(selectedRow)
+                DGVPub.Rows.Remove(selectedRow)
 
                 conn.Close()
                 MessageBox.Show("Oferta eliminada existosamente")

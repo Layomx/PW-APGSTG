@@ -92,6 +92,12 @@
     <Compile Include="CompanyOffers.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="CoordinatorAprovedOffers.Designer.vb">
+      <DependentUpon>CoordinatorAprovedOffers.vb</DependentUpon>
+    </Compile>
+    <Compile Include="CoordinatorAprovedOffers.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="CoordinatorForms.Designer.vb">
       <DependentUpon>CoordinatorForms.vb</DependentUpon>
     </Compile>
@@ -148,6 +154,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="CompanyOffers.resx">
       <DependentUpon>CompanyOffers.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CoordinatorAprovedOffers.resx">
+      <DependentUpon>CoordinatorAprovedOffers.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CoordinatorForms.resx">
       <DependentUpon>CoordinatorForms.vb</DependentUpon>
