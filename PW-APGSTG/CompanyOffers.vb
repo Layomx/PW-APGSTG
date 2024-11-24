@@ -54,7 +54,7 @@ Public Class CompanyOffers
         Dim connString = ConfigurationManager.ConnectionStrings("PW_APGSTG.My.MySettings.PW_APGSTGConnectionString").ConnectionString
 
         ' Consulta SQL
-        Dim query As String = "SELECT COD_Oferta AS COD_Oferta, Titulo, FechaEnvio, Estado FROM OfertasEnviadas WHERE ID_Empresa = @IDEmpresa UNION ALL SELECT COD_OfertaAprobada AS COD_Oferta, Titulo, FechaEnvio, Estado FROM OfertasAprobadas WHERE ID_Empresa = @IDEmpresa"
+        Dim query As String = "SELECT COD_Oferta AS COD_Oferta, Titulo, FechaEnvio, Estado FROM OfertasEnviadas WHERE ID_Empresa = @IDEmpresa UNION ALL SELECT COD_OfertaAprobada AS COD_Oferta, Titulo, FechaEnvio, Estado FROM OfertasAprobadas WHERE ID_Empresa = @IDEmpresa UNION ALL SELECT COD_OfertaPublicada AS COD_Oferta, Titulo, FechaEnvio, Estado FROM OfertasPublicadas WHERE ID_Empresa = @IDEmpresa"
 
         ' Creando una tabla de datos 
         Dim dataTable As New DataTable()
